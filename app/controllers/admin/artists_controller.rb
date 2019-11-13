@@ -2,19 +2,15 @@ class ArtistsController < ApplicationController
 
    def new
    	   @artist = Artist.new
-   	end
+   end
 
-   	def index
-   	end
-   	
-
-   	def create
-   		artist = Artist.new(artist_params)
-   		artist.save
-   		#redirect_to '/top'
-    end
-
-
+ 　def index
+   end
+　 def create
+   	artist = Artist.new(artist_params)
+   	artist.save
+   	#redirect_to '/top'
+   end
 
 end
 
