@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_060707) do
+ActiveRecord::Schema.define(version: 2019_11_13_063222) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2019_11_13_060707) do
   end
 
   create_table "artists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discs", force: :cascade do |t|
+    t.integer "cd_id"
+    t.integer "disk_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
