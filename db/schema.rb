@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_063222) do
+ActiveRecord::Schema.define(version: 2019_11_13_065109) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,7 +29,49 @@ ActiveRecord::Schema.define(version: 2019_11_13_063222) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "arrival_cds", force: :cascade do |t|
+    t.integer "cd_id"
+    t.integer "arrival_count"
+    t.datetime "arrival_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "enduser_id"
+    t.integer "cd_id"
+    t.integer "item_count"
+    t.datetime "created_at"
+  end
+
+  create_table "cds", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at", null: false
+    t.integer "artist_id"
+    t.integer "genre_id"
+    t.integer "label_id"
+    t.string "title"
+    t.integer "type"
+    t.string "image_id"
+    t.integer "price"
+    t.integer "sell_status"
+    t.date "release_date"
+    t.datetime "deleted_at"
+    t.integer "view_number", default: 0
+    t.datetime "update_at"
+  end
+
+  create_table "delivery_addresses", force: :cascade do |t|
+    t.integer "enduser_id"
+    t.string "postcode"
+    t.string "address"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,12 +108,85 @@ ActiveRecord::Schema.define(version: 2019_11_13_063222) do
     t.index ["reset_password_token"], name: "index_endusers_on_reset_password_token", unique: true
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "favorits", force: :cascade do |t|
+    t.integer "enduser_id"
+    t.integer "cd_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inquires", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "mail"
+    t.string "title"
+    t.text "body"
+    t.string "re_title"
+    t.text "re_body"
+    t.datetime "update_at"
+  end
+
   create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "cd_id"
+    t.integer "order_count"
+    t.integer "subtotal_price"
+    t.decimal "order_tax_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "enduser_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "postcode"
+    t.string "address"
+    t.integer "status", default: 0
+    t.integer "total_price"
+    t.string "postage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postages", force: :cascade do |t|
+    t.integer "postage", default: 500
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "enduser_id"
+    t.integer "cd_id"
+    t.string "review_title"
+    t.text "review_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "song_titles", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at", null: false
+    t.integer "disc_id"
+    t.string "song"
+    t.datetime "update_at"
+  end
+
+  create_table "tax_rates", force: :cascade do |t|
+    t.decimal "tax_rate", default: "1.1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
