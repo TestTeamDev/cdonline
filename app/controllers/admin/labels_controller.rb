@@ -1,8 +1,4 @@
 class LabelsController < ApplicationController
-	def new
-   	   @label = Label.new
-   	end
-
 
     def create
 
@@ -10,6 +6,12 @@ class LabelsController < ApplicationController
     	label.save
     	#redirect_to 'top'
 
+    end
+
+    def destroy
+    end
+
+    def index
     end
 
 
