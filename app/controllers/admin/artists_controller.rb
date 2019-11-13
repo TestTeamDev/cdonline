@@ -4,11 +4,18 @@ class ArtistsController < ApplicationController
    	   @artist = Artist.new
    	end
 
+   	def index
+   	end
+   	
+
    	def create
    		artist = Artist.new(artist_params)
    		artist.save
    		#redirect_to '/top'
     end
+
+
+
 end
 
 
