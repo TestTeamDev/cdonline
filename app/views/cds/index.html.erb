@@ -1,0 +1,13 @@
+<div class="col-lg-12">
+	<table class="table table-striped">
+		<% @cds.each do |cd| %>
+		<tr>
+			<td class="cd-title"><%= cd.titla %></td>
+			<td class="cd-artist"><%= cd.artist %></td>
+			<td class="cd-type"><%= cd.type %></td>
+			<td class="status"></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
