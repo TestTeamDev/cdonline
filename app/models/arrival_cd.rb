@@ -1,0 +1,2 @@
+class ArrivalCd < ApplicationRecord
+end
