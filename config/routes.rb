@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-namespace :admins do
+
+  get 'endusers/index'
+  get 'endusers/show'
+  get 'endusers/edit'
+  get 'endusers/leave'
+
+
   devise_for :admins
 end
   devise_for :endusers
