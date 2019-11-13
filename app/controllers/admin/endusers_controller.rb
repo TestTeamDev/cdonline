@@ -16,6 +16,9 @@ class EndusersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
+  def order
+  end
+
   def update
   end
 
