@@ -1,0 +1,29 @@
+<header>
+</header>
+<div class="maincontents">
+  <h1 class="title">ユーザー一覧</h1>
+  <div class="col-xs-12">
+  <table class="table">
+  	　<thead>
+  		<th>
+  		</th>
+  	  </thead>
+  	  <tbody>
+  	  	<% @users.each do |user| %>
+  	  	<tr>
+  	  	 <td>
+  	  	   <%= link_to user.id, user_path(user.id) %>
+  	  	 </td>
+  	  	 <td>
+  	  	   <%= link_to user.name %>
+  	  	 </td>
+  	  	 <td>
+  	  	   <%= link_to user.email %>
+  	  	 </td>
+  	  	</tr>
+  	  	<% end %>
+  	  	<% paginate @users -%>
+  	  </tbody>
+  </table>
+  </div>
+</div>
