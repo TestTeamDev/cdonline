@@ -2,6 +2,7 @@ class ArtistsController < ApplicationController
 
    def new
    	   @artist = Artist.new
+
    end
 
  　def index
@@ -11,6 +12,7 @@ class ArtistsController < ApplicationController
    	artist.save
    	#redirect_to '/top'
    end
+
 
 end
 
