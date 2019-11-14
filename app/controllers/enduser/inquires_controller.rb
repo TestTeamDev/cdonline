@@ -1,4 +1,4 @@
-class enduser::InquiresController < ApplicationController
+class Enduser::InquiresController < ApplicationController
 	def form
 	end
 	def create

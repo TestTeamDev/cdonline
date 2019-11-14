@@ -1,4 +1,4 @@
-class enduser::CdsController < ApplicationController
+class Enduser::CdsController < ApplicationController
 
 def index
 end

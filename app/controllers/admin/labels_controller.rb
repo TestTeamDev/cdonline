@@ -1,4 +1,4 @@
-class admin::LabelsController < ApplicationController
+class Admin::LabelsController < ApplicationController
 
     def create
 

@@ -1,4 +1,4 @@
-class admin::ArrivalCdsController < ApplicationController
+class Admin::ArrivalCdsController < ApplicationController
 
 	def new
 	end

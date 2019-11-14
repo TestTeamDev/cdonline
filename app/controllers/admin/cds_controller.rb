@@ -1,4 +1,4 @@
-class admin::CdsController < ApplicationController
+class Admin::CdsController < ApplicationController
   def index
   	@cds = Cd.all
   	@cd = Cd.new
