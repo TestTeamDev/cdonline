@@ -21,10 +21,9 @@ Rails.application.routes.draw do
   resources :inquires, only: [:index, :show, :update, :form, :create]
   get 'inquires/form', to: 'inquires#form'
 
-
 namespace :admins do
   devise_for :admins, :controller => {
-    
+
   }
 end
   devise_for :endusers

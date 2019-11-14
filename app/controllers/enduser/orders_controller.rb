@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class enduser::OrdersController < ApplicationController
 	def index
 	end
 	def show
