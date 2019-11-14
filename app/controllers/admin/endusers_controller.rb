@@ -1,17 +1,18 @@
 class Admin::EndusersController < ApplicationController
-def index
+  def index
+    @users = Enduser.all
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = Enduser.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = Enduser.find(params[:id])
   end
 
   def leave
-    @user = User.find(params[:id])
+    @user = Enduser.find(params[:id])
   end
 
   def order
