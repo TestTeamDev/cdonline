@@ -1,15 +1,24 @@
-<h2>Log inaaa</h2>
+<h2>管理者用ログイン画面</h2>
+
+  </br>
+  </br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  </br>
+  </br>
+
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
+
+  </br>
+  </br>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -18,9 +27,12 @@
     </div>
   <% end %>
 
+　</br>
+  </br>
+
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン",class: "btn btn-primary  btn-block" %>
   </div>
 <% end %>
 
-<%= render "admins/shared/links" %>
+
