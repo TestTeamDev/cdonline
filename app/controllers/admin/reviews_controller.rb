@@ -1,4 +1,4 @@
-class admin::ReviewsController < ApplicationController
+class Admin::ReviewsController < ApplicationController
 
 
     def edit

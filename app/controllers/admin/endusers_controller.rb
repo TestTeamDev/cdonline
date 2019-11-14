@@ -1,4 +1,4 @@
-class admin::EndusersController < ApplicationController
+class Admin::EndusersController < ApplicationController
   def index
   	@users = User.all
   	@user = User.find(params[:id])

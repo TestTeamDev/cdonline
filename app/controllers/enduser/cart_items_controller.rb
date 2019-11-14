@@ -1,4 +1,4 @@
-class enduser::CartItemsController < ApplicationController
+class Enduser::CartItemsController < ApplicationController
 
   def show
   end
