@@ -19,13 +19,20 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
+  namespace :endusers do
+    devise_for :endusers, :controller => {
 
+    }
+  end
 
 
   namespace :admins do
     devise_for :admins, :controller => {
 
     }
+  end
+
+  namespace :admin do
     resources :endusers, only: [:index, :show, :edit, :leave, :order, :update, :destroy]
     get 'endusers/leave', to: 'endusers#leave'
     get 'enduser/:id/orders', to: 'endusers#order'
