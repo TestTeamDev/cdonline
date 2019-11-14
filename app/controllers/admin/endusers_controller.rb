@@ -1,19 +1,17 @@
 class Admin::EndusersController < ApplicationController
-  def index
-  	@users = User.all
-  	@user = User.find(params[:id])
+def index
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def leave
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def order
@@ -24,5 +22,4 @@ class Admin::EndusersController < ApplicationController
 
   def destroy
   end
-
 end
