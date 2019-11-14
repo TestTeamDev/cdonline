@@ -1,4 +1,4 @@
-class TopsController < ApplicationController
+class enduser::TopsController < ApplicationController
 	def top
 	end
 end

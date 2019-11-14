@@ -1,4 +1,4 @@
-class DeliverlyAddressesController < ApplicationController
+class enduser::DeliverlyAddressesController < ApplicationController
 
 	def new
 	end
