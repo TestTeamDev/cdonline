@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :tops, only: [:top]
   get 'tops/top', to: 'tops#top'
   root :to=>'tops#top'
-  resources :endusers
+  resources :endusers, only: [:index, :show, :edit, :leave, :order, :update, :destroy]
+  get 'enduser/:id/orders', to: 'endusers#order'
+  get 'endusers/leave', to: 'endusers#leave'
   resources :cds
   resources :cart_items, only: [:show, :create, :destroy, :update]
   resources :deliverly_addresses, only: [:new, :create, :destroy]
