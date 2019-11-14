@@ -1,2 +1,37 @@
-<h1>Cds#new</h1>
-<p>Find me in app/views/cds/new.html.erb</p>
+<div class="new">
+	<h1>商品の新規投稿</h1>
+	<%= form_for @cd, url: admin_cds_path do |f| %>
+
+	<p class="new-title">タイトル</p>
+	<%= f.text_field :title, class:"" %>
+
+	<p class="new-artist">アーティスト</p>
+	<%= f.select :artist_id, class:"" %>
+
+	<p class="new-jacket-image">ジャケット画像</p>
+	<%= f.attachment_field :image %>
+
+	<p class="new-price">価格（税別）</p>
+	<%= f.text_field :price, class:"" %>
+
+	<p class="new-release">発売日</p>
+	<%= f.text_field :release_date, class:"" %>
+
+	<p class="new-label">レーベル</p>
+	<%= f.select :label_id, class:"" %>
+
+	<p class="new-genre">ジャンル</p>
+	<%= f.select :genre_id, class:"" %>
+
+	<p class="new-song-title">曲名</p>
+	<%= form_for @song, url: admin_cds_path do |f| %>
+	<%= f.text_area :song, class:"" %>
+
+	<p class="create"><%= f.submit '商品を追加する', class:"" %></p>
+
+    <% end %>
+
+    <% end %>
+</div>
+
+

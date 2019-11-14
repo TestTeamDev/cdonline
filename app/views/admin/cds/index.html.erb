@@ -1,5 +1,11 @@
 <div class="col-lg-12">
 	<table class="table table-striped">
+		<tr>
+			<th class="cd-title"></th>
+			<th class="cd-artist"></th>
+			<th class="cd-type"></th>
+			<th class="status"></th>
+		</tr>
 		<% @cds.each do |cd| %>
 		<tr>
 			<td class="cd-title"><%= cd.titla %></td>
