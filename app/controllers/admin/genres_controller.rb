@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class admin::GenresController < ApplicationController
 
 	def new
 

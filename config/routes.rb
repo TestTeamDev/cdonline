@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
 
 
+
   namespace :admins do
     devise_for :admins, :controller => {
 
@@ -37,5 +38,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:destroy, :edit, :update]
     resources :inquires, only: [:index, :show, :update]
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

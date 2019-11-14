@@ -1,4 +1,4 @@
-class ArtistsController < ApplicationController
+class admin::ArtistsController < ApplicationController
 
 
 	def index

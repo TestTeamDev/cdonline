@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class enduser::ReviewsController < ApplicationController
 
 	def create
 	end

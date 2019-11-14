@@ -1,4 +1,4 @@
-class OrderConfirmationsController < ApplicationController
+class enduser::OrderConfirmationsController < ApplicationController
 
 	def show
 	end
