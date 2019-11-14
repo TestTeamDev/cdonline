@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <% if admins_admin_signed_in? %>
+        <div class="container">
+          <%= link_to "CD NEXT ONLINE", 'admins_cds_path'%>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "新規書品の追加",   '#' %></li>
+              <li><%= link_to "入荷履歴",   '#' %></li>
+              <li><%= link_to "一覧",   '#' %></li>
+              <li><%= link_to "ログアウト", destroy_admins_admin_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        </div>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
