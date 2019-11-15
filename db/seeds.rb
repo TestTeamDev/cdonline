@@ -10,3 +10,36 @@ Admin.create!(
    email: 'test@test.com',
    password: 'testtest'
 )
+Enduser.create!(
+   first_name: '鈴木',
+   last_name: '一郎',
+   email: 'aaa@aaaa.com',
+   password: 'aaaaaa',
+   reading_first_name: 'スズキ',
+   reading_last_name: 'イチロウ',
+   postcode: '111-1111',
+   address: '東京都渋谷区渋谷１−１−１',
+   phone_number: "111-1111-111",
+)
+Enduser.create!(
+   first_name: '佐藤',
+   last_name: '一郎',
+   email: 'bbb@bbbb.com',
+   password: 'bbbbbb',
+   reading_first_name: 'サトウ',
+   reading_last_name: 'イチロウ',
+   postcode: '222-2222',
+   address: '東京都渋谷区渋谷2−2−2',
+   phone_number: "222-2222-222",
+)
+Enduser.create!(
+   first_name: '木村',
+   last_name: '拓也',
+   email: 'ccc@cccc.com',
+   password: 'cccccc',
+   reading_first_name: 'キムラ',
+   reading_last_name: 'タクヤ',
+   postcode: '333-3333',
+   address: '東京都渋谷区渋谷3−3−3',
+   phone_number: "333-3333-",
+)

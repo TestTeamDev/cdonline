@@ -1,6 +1,6 @@
 <header>
 </header>
-<div class="maincontents">
+<div class="container maincontents">
   <h3 class="title">ユーザー一覧</h3>
 <div class="col-xs-12">
   <table class="table table-striped">
@@ -15,11 +15,15 @@
   	<tbody>
   	 <tr>
   	   <th><%= user.id %></th>
-  	   <th><%= link_to user.name, enduser_enduser_path(user.id) %></th>
+  	   <th>
+  	   	<%= link_to user.first_name,admin_enduser_path(user.id) %>
+  	   	<%= link_to user.last_name,admin_enduser_path(user.id) %>
+  	   </th>
   	   <th><%= user.email %></th>
   	 </tr>
   	</tbody>
   	<% end %>
+  	<%= paginate @users, class: "paginate" %>
   </table>
 </div>
-  </div>
+</div>

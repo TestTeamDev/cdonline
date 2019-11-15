@@ -1,3 +1,34 @@
-<h1>Endusers#show</h1>
-<p>Find me in app/views/endusers/show.html.erb</p>
-
+<header>
+</header>
+<div class="container main-contents">
+  <div class="row">
+  	<div class="col-xs-4">
+  	  <%= @user.first_name %><%= @user.last_name %>
+  	</div>
+  	<div class="col-xs-4">
+  	  <table>
+  	  	<tr>
+  	  	  <th>郵便番号</th>
+  	  	  <td><%= @user.postcode %></td>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>住所</th>
+  	  	  <td><%= @user.address %></td>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>電話番号</th>
+  	  	  <td><%= @user.phone_number %></td>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>メールアドレス</th>
+  	  	  <td><%= @user.email %></td>
+  	  	</tr>
+  	  </table>
+  	</div>
+  	<div class="col-xs-2">
+  	  <%= link_to "編集", edit_admin_enduser_path, class:"btn btn-block btn-success" %>
+  	  <%= link_to "購入履歴",admin_order_index_path, class:"btn btn-block btn-info" %>
+  	  <%= link_to "削除",admin_endusers_leave_path, class:"btn btn-block btn-danger" %>
+  	</div>
+  </div>
+</div>
