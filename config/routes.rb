@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :cds, only: [:index, :show]
     resources :endusers, only: [:show, :edit, :leave, :update, :destroy]
     get 'endusers/leave', to: 'endusers#leave'
-    resources :cart_items, only: [:show, :create, :destroy, :update]
+    resources :cart_items, only: [:index, :create, :destroy, :update]
     resources :deliverly_addresses, only: [:new, :create, :destroy]
-    resources :order ,only: [:index, :show, :create]
+    resources :orders ,only: [:index, :show, :create]
     resources :order_confirmations, only: [:show, :thanks]
     get 'order_confirmations/thanks', to: 'order_confirmations#thanks'
     resources :inquires, only: [:form, :create]
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     get 'enduser/:id/orders', to: 'endusers#order', on: :member
     end
     resources :cds
-    resources :order ,only: [:index, :show, :update]
+    resources :orders ,only: [:index, :show, :update]
     resources :genres, only: [:new, :destroy, :index, :create]
     resources :labels, only: [:create, :destroy, :index]
     resources :artists, only: [:create, :destroy, :index]

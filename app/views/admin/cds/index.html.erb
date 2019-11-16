@@ -1,13 +1,29 @@
-<div class="col-lg-12">
-	<table class="table table-striped">
-		<% @cds.each do |cd| %>
-		<tr>
-			<td class="cd-title"><%= cd.titla %></td>
-			<td class="cd-artist"><%= cd.artist %></td>
-			<td class="cd-type"><%= cd.type %></td>
-			<td class="status"></td>
-		</tr>
-		<% end %>
-	</table>
-</div>
+<div class="container maincontents">
+	<h1>販売商品一覧</h1>
 
+	<div class="col-lg-12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="cd-title">CDタイトル</th>
+					<th class="cd-artist">アーティスト</th>
+					<th class="cd-type">タイプ</th>
+					<th class="status">状況</th>
+				</tr>
+		    </thead>
+			<% @cds.each do |cd| %>
+			<tbody>
+				<tr>
+					<td class="cd-title">
+						<%= link_to admin_cd_path(cd) do %>
+						  <%= cd.title %>
+						<% end %></td>
+					<td class="cd-artist"><%= cd.artist_id %></td>
+					<td class="cd-type"><%= cd.type %></td>
+					<td class="status"></td>
+				</tr>
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>
