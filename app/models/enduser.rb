@@ -4,6 +4,6 @@ class Enduser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   paginates_per 30
+  acts_as_paranoid
 end

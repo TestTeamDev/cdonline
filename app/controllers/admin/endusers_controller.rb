@@ -12,24 +12,31 @@ class Admin::EndusersController < ApplicationController
   end
 
   def leave
-    @user = Enduser.find(params[:id])
   end
 
   def order
-    @user = Enduser.fund(params[:id])
+    @user = Enduser.find(params[:id])
     @orders = @user.orders
   end
 
   def update
     @user = Enduser.find(params[:id])
+    if @user.update(enduser_params)
+         flash[:notice] = "You have updated successfully."
+         redirect_to admin_enduser_path(@user.id)
+      else
+         flash[:notice] = "error"
+         redirect_to edit_admin_enduser_path(@user.id)
+      end
   end
 
   def destroy
+    @user = Enduser.find(params[:id])
   end
 
   private
-    def user_params
-      params.require(:enduser)
+    def enduser_params
+      params.require(:enduser).permit(:first_name,:last_name,:reading_first_name,:reading_last_name,:postcode,:address,:phone_number)
   end
 
 end

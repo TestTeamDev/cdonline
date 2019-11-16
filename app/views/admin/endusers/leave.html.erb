@@ -2,6 +2,10 @@
 </header>
 <div class="main-contents">
   <div class="messagebox">本当にこのユーザーを削除しますか？</div>
-  <%= link_to 'はい',user,method: :delete %>
-  <%= link_to 'いいえ', user_path(@user) %>
+  <%= link_to admin_user_path, method: :delete do %>
+  <p>はい</p>
+  <% end %>
+  <%= link_to admin_endusers_path do %>
+  <p>いいえ</p>
+  <% end %>
 </div>
