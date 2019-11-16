@@ -1,0 +1,39 @@
+<div class= "title" >
+
+<h2>アーティスト一覧</h2>
+
+</div>
+
+<div class="contaiber">
+
+	<div class="row">
+
+	   		<table class="table">
+				<thead>
+				  <tbody>
+					 <tr>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+       				<% @artists.each do |artist| %>
+
+					        <td>
+					        	ジャンル名
+					        </td>
+					        <td>
+					            <%= artist.name %>
+					        </td>
+					        <td>
+					           <%= link_to "削除", admin_artist_path(artist), method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+					        </td>
+
+
+		       </tbody>
+		       <% end %>
+   			</table>
+   		</div>
+   	</div>
+</div>

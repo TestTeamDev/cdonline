@@ -1,10 +1,6 @@
 class Artist < ApplicationRecord
 
+has_many :cds
 
-def change        
-        create_table :artists do |t|
-
-        	t. string :name
-
-     end
+validates :name, presence: true
  end

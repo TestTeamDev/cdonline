@@ -1,0 +1,45 @@
+
+
+<div class= "genrebox" >
+<!-- ジャンルのform_for部分 -->
+  <%= form_for @genre,url:admin_genres_path  do |f| %>
+
+    <p><h4>ジャンル</h4></p>
+    <%= f.text_field :name %>
+    <%= f.submit '登録' %>
+
+  <% end %>
+</div>
+
+
+
+<p></p>
+
+<div class= "labelbox" >
+<!-- レーベルの部分 -->
+   <%= form_with model:@label, url:admin_labels_path, method: :post do |f| %>
+   <p><h4>レーベル</h4></p>
+   <%= f.text_field :name %>
+
+   <%= f.submit '登録' %>
+
+   <% end %>
+
+</div>
+
+
+<p></p>
+
+<div class= "artistbox" >
+<!-- アーティストの部分 -->
+   <%= form_with model:@artist, url:admin_artists_path, method: :post do |f| %>
+   <p><h4>アーティスト</h4></p>
+   <%= f.text_field :name %>
+
+   <%= f.submit '登録' %>
+
+   <% end %>
+
+
+</div>
+
