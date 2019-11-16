@@ -1,0 +1,41 @@
+<div class= "title" >
+
+<h2>レーベル一覧</h2>
+
+</div>
+
+
+<div class="contaiber">
+
+	<div class="row">
+
+
+	   		<table class="table">
+				<thead>
+				  <tbody>
+					 <tr>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+       				<% @labels.each do |label| %>
+
+					        <td>
+					        	ジャンル名
+					        </td>
+					        <td>
+					            <%= label.name %>
+					        </td>
+					        <td>
+					           <%= link_to "削除", admin_label_path(label), method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+					        </td>
+
+
+		       </tbody>
+		       <% end %>
+   			</table>
+   		</div>
+   	</div>
+</div>
