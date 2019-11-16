@@ -1,8 +1,6 @@
 <header>
 </header>
-<div class="main-contents">
+<div class="container main-contents">
   <div class="messagebox">本当にこのユーザーを削除しますか？</div>
-  <%= limk_to admin_enduser_path, method: :deletes do %>
-  <p>はい</p>
-  <% end %>
+  <%= link_to 'はい', admin_enduser_path(@user.id),method: :delete %>
  </div>
