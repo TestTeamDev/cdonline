@@ -1,31 +1,34 @@
-<div class="new">
+<div class="new text-center">
 	<h1>商品の新規投稿</h1>
 	<%= form_for @cd, url: admin_cds_path do |f| %>
 
-	<p class="new-title">タイトル</p>
-	<%= f.text_field :title, class:"" %>
+	<p class="new-title">タイトル<br>
+	<%= f.text_field :title, class:"" %></p>
 
-	<p class="new-artist">アーティスト</p>
-	<%= f.select :artist_id, class:"" %>
+	<p class="new-artist">アーティスト<br>
+	<%= f.select :artist_id, class:"" %></p>
 
-	<p class="new-jacket-image">ジャケット画像</p>
-	<%= f.attachment_field :image %>
+	<p class="new-jacket-image">ジャケット画像<br>
+	<%= f.attachment_field :image, class:"center-block" %></p>
 
-	<p class="new-price">価格（税別）</p>
-	<%= f.text_field :price, class:"" %>
+	<p class="new-price">価格（税別）<br>
+	<%= f.text_field :price, class:"" %></p>
 
-	<p class="new-release">発売日</p>
-	<%= f.text_field :release_date, class:"" %>
+	<p class="new-release">発売日<br>
+	<%= f.text_field :release_date, class:"" %></p>
 
-	<p class="new-label">レーベル</p>
-	<%= f.select :label_id, class:"" %>
+	<p class="new-label">レーベル<br>
+	<%= f.select :label_id, class:"" %></p>
 
-	<p class="new-genre">ジャンル</p>
-	<%= f.select :genre_id, class:"" %>
+	<p class="new-genre">ジャンル<br>
+	<%= f.select :genre_id, class:"" %></p>
 
-	<p class="new-song-title">曲名</p>
+	<p class="new-type">タイプ<br>
+	<%= f.select :type, class:"" %></p>
+
+	<p class="new-song-title">曲名<br>
 	<%= form_for @song, url: admin_cds_path do |f| %>
-	<%= f.text_area :song, class:"" %>
+	<%= f.text_area :song, class:"" %></p>
 
 	<p class="create"><%= f.submit '商品を追加する', class:"" %></p>
 
