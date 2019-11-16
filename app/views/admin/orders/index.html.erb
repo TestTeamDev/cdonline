@@ -1,0 +1,16 @@
+<h1>購入履歴一覧（全ユーザー）</h1>
+
+<div class="contaiber">
+　　<div class="row">
+	<table class="table">
+	　　<thead>
+		</thead>
+		　　<tbody>
+			  <% @orders.each do |order| %>
+			　　<tr>
+					<th>order.created_at</th>
+					<% @oder_products.each do |order_product| %>
+					<th></th>
+					<% end %>
+					<th></th>
+				</tr>
