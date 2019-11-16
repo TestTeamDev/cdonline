@@ -3,17 +3,19 @@
 	<ul class="list-group">
 		<li class="status list-group-item"></li>
 		<li class="cd-number list-group-item"></li>
-		<li class="cd-title list-group-item"></li>
-		<li class="cd-artist list-group-item"></li>
-		<li class="cd-release list-group-item"></li>
-		<li class="cd-price list-group-item"></li>
-		<li class="cd-label list-group-item"></li>
-		<li class="cd-genre list-group-item"></li>
+		<li class="cd-title list-group-item"><%= @cd.title %></li>
+		<li class="cd-artist list-group-item"><%= @cd.artist_id %></li>
+		<li class="cd-release list-group-item"><%= @cd.release_date %></li>
+		<li class="cd-price list-group-item"><%= @cd.price %></li>
+		<li class="cd-label list-group-item"><%= @cd.label_id %></li>
+		<li class="cd-genre list-group-item"><%= @cd.genre_id %></li>
 	</ul>
-	<div class="">
-		<p class="edit">編集</p>
-		<p class="destroy">削除</p>
-	</div>
+	<%= link_to "編集", edit_admin_cd_path(@cd), class:"" %>
+	<%= link_to "削除", admin_cd_path, class:"" %>
+</div>
+
+<div class="col-lg-12">
+	<p><%= @cd.song_title.song %></p>
 </div>
 
 
