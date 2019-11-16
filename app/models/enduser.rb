@@ -6,4 +6,11 @@ class Enduser < ApplicationRecord
 
   paginates_per 30
   acts_as_paranoid
+
+  has_many :delivery_addresses
+  has_many :reviews
+  has_many :favorits
+  has_many :cart_items
+  has_many :orders
+
 end
