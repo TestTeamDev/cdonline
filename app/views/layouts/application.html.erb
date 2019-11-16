@@ -10,6 +10,53 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+      <% if admins_admin_signed_in? %>
+        <div class="container">
+          <%= link_to "CD NEXT ONLINE", 'admin_cds_path', id: "logo"%>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "新規商品の追加", new_admin_cd_path %></li>
+              <li><%= link_to "入荷履歴", admin_arrival_cds_path %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  一覧 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "ユーザー一覧", admin_endusers_path %></li>
+                  <li><%= link_to "受注履歴一覧", admin_orders_path %></li>
+                  <li><%= link_to "問い合わせ一覧", admin_inquires_path %></li>
+                  <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+                  <li><%= link_to "レーベル一覧", admin_labels_path %></li>
+                  <li><%= link_to "アーティスト一覧", admin_artists_path %></li>
+                </ul>
+              <li><%= link_to "ログアウト", destroy_admins_admin_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        </div>
+      <% elsif endusers_enduser_signed_in? %>
+        <div class="container">
+          <%= link_to "CD NEXT ONLINE", 'root_path', id: "logo"%>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "カート一覧", new_admin_cd_path %></li>
+              <li><%= link_to "#{@enduser.first_name}さんのマイページ", enduser_cart_items %></li>
+              <li><%= link_to "ログアウト", destroy_endusers_enduser_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        </div>
+      <% else %>
+        <div class="container">
+          <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+<!--               <li><%= link_to "新規登録", new_endusers_enduser_registration_path %></li>
+                   <li><%= link_to "ログイン", new_endusers_enduser_session_path %></li>
+ -->            </ul>
+          </nav>
+        </div>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
