@@ -10,6 +10,7 @@ Admin.create!(
    email: 'test@test.com',
    password: 'testtest'
 )
+
 Enduser.create!(
    first_name: '鈴木',
    last_name: '一郎',

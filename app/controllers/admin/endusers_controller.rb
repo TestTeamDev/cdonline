@@ -12,6 +12,7 @@ class Admin::EndusersController < ApplicationController
   end
 
   def leave
+    @user = Enduser.find(params[:id])
   end
 
   def order
@@ -22,7 +23,7 @@ class Admin::EndusersController < ApplicationController
   def update
     @user = Enduser.find(params[:id])
     if @user.update(enduser_params)
-         flash[:notice] = "You have updated successfully."
+         flash[:notice] = "プロフィールを更新しました"
          redirect_to admin_enduser_path(@user.id)
       else
          flash[:notice] = "error"
@@ -31,7 +32,9 @@ class Admin::EndusersController < ApplicationController
   end
 
   def destroy
-    @user = Enduser.find(params[:id])
+    @user = Enduser.find_by(id:params[:id])
+    @user.destroy
+      redirect_to admin_endusers_path
   end
 
   private

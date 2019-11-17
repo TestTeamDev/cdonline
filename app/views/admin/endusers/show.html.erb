@@ -1,45 +1,42 @@
 <header>
 </header>
 <div class="container main-contents">
+  <h3>User info</h3>
   <% if flash[:notice] %>
   　<div class="flash">
   　　<%= flash[:notice] %>
    </div>
   <% end %>
-  <div class="row">
-  　<div class= "center-block">
-  	<div class="col-xs-4">
-  	  <table>
+  	<div class="col-md-6 col-md-offset-3">
+  	  <table class="col-md-6 col-md-offset-3">
   	  <thead>
   	  	<tr>
-  	  	<p class= "text-center"><%= @user.first_name %><%= @user.last_name %></p>
+  	  	<p class="text-center"><%= @user.first_name %><%= @user.last_name %></p>
   	  	</tr>
   	  </thead>
   	  <tbody>
-  	  	<tr>
+  	  	<tr align = "center">
   	  	  <th>郵便番号</th>
   	  	  <td><%= @user.postcode %></td>
   	  	</tr>
-  	  	<tr>
+  	  	<tr  align = "center">
   	  	  <th>住所</th>
   	  	  <td><%= @user.address %></td>
   	  	</tr>
-  	  	<tr>
+  	  	<tr  align = "center">
   	  	  <th>電話番号</th>
   	  	  <td><%= @user.phone_number %></td>
   	  	</tr>
-  	  	<tr>
+  	  	<tr  align = "center">
   	  	  <th>メールアドレス</th>
   	  	  <td><%= @user.email %></td>
   	  	</tr>
   	  </tbody>
   	  </table>
   	</div>
-    </div>
-  	<div class="col-xs-2">
-  	  <%= link_to "編集", edit_admin_enduser_path, class:"btn btn-block btn-success" %>
-  	  <%= link_to "購入履歴",admin_order_index_path, class:"btn btn-block btn-info" %>
-  	  <%= link_to "削除",endusers_leave_admin_endusers_path, class:"btn btn-block btn-danger" %>
-  	</div>
-  </div>
 </div>
+    <div class="col-md-2 col-md-offset-5">
+      <%= link_to "編集", edit_admin_enduser_path, class:"btn btn-block btn-success" %>
+      <%= link_to "購入履歴",admin_orders_path, class:"btn btn-block btn-info" %>
+      <%= link_to "削除",endusers_leave_admin_enduser_path(@user.id), class:"btn btn-block btn-danger" %>
+    </div>
