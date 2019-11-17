@@ -43,3 +43,53 @@ Enduser.create!(
    address: '東京都渋谷区渋谷3−3−3',
    phone_number: "333-3333-",
 )
+
+Order.create!(
+   enduser_id: 1,
+   first_name: '木村',
+   last_name: '拓也',
+   postcode: '333-3333',
+   address: '東京都渋谷区渋谷3−3−3',
+   total_price: 5000,
+   postage: 500,
+)
+
+Artist.create!(
+   name: 'ONE-OK-ROCK'
+   )
+
+Genre.create!(
+   name: 'ROCK'
+   )
+
+Label.create!(
+   name: 'sony-entertainment'
+   )
+
+Cd.create!(
+   artist_id: 1,
+   genre_id: 1,
+   label_id: 1,
+   title: 'キミシダイ列車',
+   price: 1000,
+   sell_status: 1,
+   release_date: 2019-11-17,
+)
+
+OrderProduct.create!(
+   order_id: 1,
+   cd_id: 1,
+   order_count: 5,
+   subtotal_price: 5000,
+)
+
+
+
+
+
+
+
+
+
+
+

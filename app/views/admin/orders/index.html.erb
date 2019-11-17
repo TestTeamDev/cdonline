@@ -1,16 +1,48 @@
-<h1>購入履歴一覧（全ユーザー）</h1>
+<h2>受注履歴一覧（全ユーザー）</h2>
 
 <div class="contaiber">
 　　<div class="row">
-	<table class="table">
-	　　<thead>
-		</thead>
-		　　<tbody>
-			  <% @orders.each do |order| %>
-			　　<tr>
-					<th>order.created_at</th>
-					<% @oder_products.each do |order_product| %>
-					<th></th>
-					<% end %>
-					<th></th>
-				</tr>
+		<table class="table">
+		　　<thead></thead>
+			<tbody>
+			  <tr>
+			    <% @orders.each do |order| %>
+					  <th>
+					  	<%= link_to admin_order_path(order.id) do %>
+					  	<%= order.created_at.strftime("%Y-%m-%d %H:%M") %>
+					  	<% end %>
+					  </th>
+					  <th>
+						    <a>
+						    	<%= link_to admin_order_path(order.id) do %>購入合計個数：
+						        <% sum = 0 %>
+								    <% order.order_products.each do |product| %>
+								      <% sum += product.order_count %>
+								    <% end %>
+						        <%= sum %>個
+						        <% end %>
+						    </a>
+					  </th>
+					  <th>
+							<a>
+								<%= link_to admin_order_path(order.id) do %>
+								購入合計金額：<%= order.total_price %>円
+								<% end %>
+							</a>
+					  </th>
+					  <%= form_for order, url: admin_order_path(order.id), method: :patch do |f| %>
+						<th>
+							<%= f.select :status, Order.statuses.keys.to_a, {} %>
+						</th>
+						<th>
+							<%= f.submit 'ステータス更新', :class=>"btn btn-primary  btn-block" %>
+						</th>
+					  <% end %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<%= paginate @orders, class: "paginate" %>

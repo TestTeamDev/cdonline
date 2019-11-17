@@ -3,7 +3,7 @@ class CreateDiscs < ActiveRecord::Migration[5.2]
     create_table :discs do |t|
 
         t.integer :cd_id
-    	t.integer :disk_number
+    	t.integer :disc_number
 
       t.timestamps
     end
