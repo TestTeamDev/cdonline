@@ -3,11 +3,16 @@ class Admin::LabelsController < ApplicationController
 
 
 
-    def create
-
+    def create 
     	@label = Label.new(label_params)
-    	@label.save
-    	redirect_to new_admin_genre_path
+        if @label.save
+           flash[:notice] = "1文字以上入力して下さい"
+        redirect_to new_admin_genre_path
+        else
+        @genre = Genre.new
+        @artist = Artist.new
+        render 'admin/genres/new'
+        end
     end
 
     def destroy
