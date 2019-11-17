@@ -14,11 +14,8 @@
   	<% @users.each do |user| %>
   	<tbody>
   	 <tr>
-  	   <th><%= user.id %></th>
-  	   <th>
-  	   	<%= link_to user.first_name,admin_enduser_path(user.id) %>
-  	   	<%= link_to user.last_name,admin_enduser_path(user.id) %>
-  	   </th>
+  	   <th><%= link_to user.id,admin_enduser_path(user.id) %></th>
+       <th><%= user.first_name %><%= user.last_name %></th>
   	   <th><%= user.email %></th>
   	 </tr>
   	</tbody>
