@@ -10,11 +10,11 @@
 	<div class="row">
 
 
-	   		<table class="table">
+	   		<table class="table table-striped">
 				<thead>
-				  <tbody>
+
 					 <tr>
-						<th></th>
+						<th>レーベル名</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -23,10 +23,10 @@
        				<% @labels.each do |label| %>
 
 					        <td>
-					        	ジャンル名
+					        	<%= label.name %>
 					        </td>
-					        <td>
-					            <%= label.name %>
+					        <tb>
+
 					        </td>
 					        <td>
 					           <%= link_to "削除", admin_label_path(label), method: :delete, "data-confirm" => "本当に削除しますか？？" %>

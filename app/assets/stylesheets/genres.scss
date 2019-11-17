@@ -32,7 +32,7 @@
   width: 100%; /* 横幅 */
   height: 50px; /* 高さ */
   margin: 0 auto;
-  padding: 0 10%;
+  padding: 0 20%;
 }
 
 .title {
@@ -42,5 +42,9 @@
   padding: 0 7%;
 
   }
+
+.field_with_errors{
+  display: inline-block;
+}
 
 

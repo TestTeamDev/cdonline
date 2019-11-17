@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_065109) do
 
   create_table "discs", force: :cascade do |t|
     t.integer "cd_id"
-    t.integer "disk_number"
+    t.integer "disc_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

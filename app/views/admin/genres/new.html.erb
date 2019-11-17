@@ -1,3 +1,42 @@
+<div>
+<% if @genre.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+          	<p><%= @genre.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @genre.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
+<div>
+<% if @artist.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <p><%= @artist.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @artist.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
+<div>
+<% if @label.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <p><%= @label.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @label.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
 
 
 <div class= "genrebox" >
@@ -17,7 +56,7 @@
 
 <div class= "labelbox" >
 <!-- レーベルの部分 -->
-   <%= form_with model:@label, url:admin_labels_path, method: :post do |f| %>
+   <%= form_for @label, url:admin_labels_path do |f| %>
    <p><h4>レーベル</h4></p>
    <%= f.text_field :name %>
 
@@ -32,7 +71,7 @@
 
 <div class= "artistbox" >
 <!-- アーティストの部分 -->
-   <%= form_with model:@artist, url:admin_artists_path, method: :post do |f| %>
+   <%= form_for @artist, url:admin_artists_path do |f| %>
    <p><h4>アーティスト</h4></p>
    <%= f.text_field :name %>
 

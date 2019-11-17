@@ -6,10 +6,17 @@ class Admin::ArtistsController < ApplicationController
 	end
 
 	def create
-		artist = Artist.new(artist_params)
-   	    artist.save
-   	    redirect_to new_admin_genre_path
-   	end
+		@artist = Artist.new(artist_params)
+		if @artist.save
+           flash[:notice] = "1文字以上入力して下さい"
+    	redirect_to new_admin_genre_path
+        else
+        @label = Label.new
+        @genre = Genre.new
+        render 'admin/genres/new'
+        end
+    end
+
 
 
    	def destroy
