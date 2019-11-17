@@ -33,9 +33,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :endusers, only: [:index, :show, :edit, :leave, :order, :update, :destroy] do
-    get 'endusers/leave', to: 'endusers#leave', on: :member
-    get 'enduser/:id/orders', to: 'endusers#order', on: :member
+    resources :endusers, only: [:index, :show, :edit, :update, :destroy] do
+    get 'leave', to: 'endusers#leave', on: :member
+    get 'orders', to: 'endusers#order', on: :member
     end
     resources :cds
     resources :orders ,only: [:index, :show, :update]

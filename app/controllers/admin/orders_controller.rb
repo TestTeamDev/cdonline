@@ -2,7 +2,6 @@ class Admin::OrdersController < ApplicationController
 
 	def index
 		@orders = Order.page(params[:page]).reverse_order.includes(:order_products)
-
 	end
 
 	def show
@@ -15,7 +14,7 @@ class Admin::OrdersController < ApplicationController
 		redirect_to admin_orders_path
 	end
 
-	private 
+	private
     def order_params
       params.require(:order).permit(:status)
     end
