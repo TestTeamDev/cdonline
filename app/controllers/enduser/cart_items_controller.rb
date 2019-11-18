@@ -6,7 +6,13 @@ class Enduser::CartItemsController < ApplicationController
   end
 
   def create
-  	@cart = Cart_items.new
+    @cd = CD.find(params[:id])
+    @cart = Cart_items.new
+    @cart.enduser_id = current_enduser.id
+    @cart.cd_id = @cd.id
+    if @cart.save!
+      redirect_to enduser_order_path
+    end
   end
 
   def destroy
@@ -16,6 +22,8 @@ class Enduser::CartItemsController < ApplicationController
   end
 
   def update
+  	@cart = Cart_items.find
+  	@cart.update
   end
 
   private
