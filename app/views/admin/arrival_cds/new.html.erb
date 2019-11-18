@@ -1,0 +1,50 @@
+<div>
+<% if @arrival_cd.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+          	<p><%= @arrival_cds.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @arrival_cds.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
+<br>
+
+<%= form_for @arrival_cd, url:admin_arrival_cds_path do |t| %>
+
+  <div class="form-main">
+
+    <div class="form-group1">
+     <label class="form-sub">商品名</label>
+     <br>
+    <%= t.collection_select(:cd_id, Cd.all, :id, :title,  {prompt: ""} ) %>
+    </div>
+
+    <br>
+
+    <div class="form-group1">
+      <label class="form-sub">発注数</label>
+      <br>
+      <%= t.number_field :arrival_count %>
+    </div>
+
+    <br>
+
+    <div class="form-group1">
+      <label class="form-sub">入荷日</label>
+      <br>
+      <%= t.date_field :arrival_date  %>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-group2">
+       <%= t.submit "商品を入荷する" %>
+    </div>
+  </div>
+
+<% end %>

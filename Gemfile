@@ -72,4 +72,5 @@ gem 'ransack'
 gem 'kaminari', '~> 1.1.1'
 gem 'paranoia'
 
+gem 'rails-i18n'
 

@@ -8,11 +8,11 @@
 
 	<div class="row">
 
-	   		<table class="table">
+	   		<table class="table table-striped">
 				<thead>
-				  <tbody>
+
 					 <tr>
-						<th></th>
+						<th>アーティスト名</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -21,10 +21,10 @@
        				<% @artists.each do |artist| %>
 
 					        <td>
-					        	ジャンル名
+					        	<%= artist.name %>
 					        </td>
 					        <td>
-					            <%= artist.name %>
+
 					        </td>
 					        <td>
 					           <%= link_to "削除", admin_artist_path(artist), method: :delete, "data-confirm" => "本当に削除しますか？？" %>
