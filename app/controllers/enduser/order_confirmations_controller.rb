@@ -1,6 +1,8 @@
 class Enduser::OrderConfirmationsController < ApplicationController
 
-	def show
+	def index
+		@enduser = Enduser.find(current_enduser_enduser.id)
+		
 	end
 
 	def thanks

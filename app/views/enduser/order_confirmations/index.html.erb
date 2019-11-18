@@ -1,0 +1,11 @@
+<h2>注文確認</h2>
+
+<div>
+   <h4>合計金額</h4>
+</div>
+
+<div>
+  <h4>配送先</h4>
+  <%= collection_select(:delivery_address_id, DeliveryAddress.all, :id, :address,  {prompt: ""} ) %>
+</div>
+

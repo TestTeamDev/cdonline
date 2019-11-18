@@ -8,7 +8,7 @@ class Enduser::DeliveryAddressesController < ApplicationController
 		@delivery_address = DeliveryAddress.new(delivery_address_params)
 		@delivery_address.enduser_id =  current_user.id
 		@delivery_address.save
-		redirect_to admin_arrival_cds_path
+		redirect_to root_path
 	end
 
 	def destroy
@@ -17,7 +17,7 @@ class Enduser::DeliveryAddressesController < ApplicationController
 
 	private
 
-    def deliverly_address_params
+    def delivery_address_params
       params.require(:delivery_address).permit(:enduser_id, :postcode, :address, :name)
     end
 end

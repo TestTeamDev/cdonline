@@ -1,37 +1,42 @@
-<h2>配送先住所の登録</h2>
+<div class = "deli-center">
 
-<%= form_for @deliverly_address, url: enduser_deliverly_addresses_path do |f| %>
+  <h2>配送先住所の登録</h2>
 
-  <div class="form-main">
+  <%= form_for @delivery_address, url: enduser_delivery_addresses_path do |f| %>
 
-    <br>
+    <div class="form-main">
 
-    <div class="form-group1">
-      <label class="form-sub">受取人の名前</label>
       <br>
-      <%= f.text_field :name %>
-    </div>
 
-    <br>
+      <div class="form-group1">
+        <label class="form-sub">受取人の名前</label>
+        <br>
+        <%= f.text_field :name %>
+      </div>
 
-    <div class="form-group1">
-      <label class="form-sub">郵便番号</label>
       <br>
-      <%= f.text_field :postcode  %>
-    </div>
 
-    <br>
-    <br>
+      <div class="form-group1">
+        <label class="form-sub">郵便番号</label>
+        <br>
+        <%= f.text_field :postcode  %>
+      </div>
 
-    <div class="form-group1">
-      <label class="form-sub">住所</label>
       <br>
-      <%= f.text_field :address  %>
+
+      <div class="form-group1">
+        <label class="form-sub">住所</label>
+        <br>
+        <%= f.text_area :address  %>
+      </div>
+
+      <br>
+
+      <div class="form-group2">
+         <%= f.submit "登録する" %>
+      </div>
     </div>
 
-    <div class="form-group2">
-       <%= f.submit "登録する" %>
-    </div>
-  </div>
+</div>
 
 <% end %>
