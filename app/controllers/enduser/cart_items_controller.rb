@@ -7,7 +7,7 @@ class Enduser::CartItemsController < ApplicationController
   def create
     @cd = CD.find(params[:id])
     @cart = Cart_items.new
-    @cart.enduser_id = current_enduser.id
+    @cart.enduser_id = current_user.id
     @cart.cd_id = @cd.id
     if @cart.save!
       redirect_to enduser_order_path
