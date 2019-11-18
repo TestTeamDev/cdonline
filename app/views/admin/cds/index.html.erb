@@ -18,7 +18,7 @@
 						<%= link_to admin_cd_path(cd) do %>
 						  <%= cd.title %>
 						<% end %></td>
-					<td class="cd-artist"><%= cd.artist_id %></td>
+					<td class="cd-artist"><%= cd.artist.name %></td>
 					<td class="cd-type"><%= cd.type %></td>
 					<td class="status"></td>
 				</tr>
@@ -27,3 +27,4 @@
 		</table>
 	</div>
 </div>
+

@@ -45,6 +45,19 @@ Enduser.create!(
    phone_number: "333-3333-",
 )
 
+
+Artist.create!(
+   name: 'backnumber',
+)
+
+Genre.create!(
+   name: 'J-POP',
+)
+
+Label.create!(
+   name: 'avex',
+)
+=======
 Order.create!(
    enduser_id: 1,
    first_name: '木村',
@@ -83,6 +96,7 @@ OrderProduct.create!(
    order_count: 5,
    subtotal_price: 5000,
 )
+
 
 
 

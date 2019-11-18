@@ -1,4 +1,6 @@
-<div class="new text-center">
+<div class="text-right "><%= link_to new_admin_genre_path do %>ジャンル、レーベル、アーティストの追加<% end %></div>
+
+<div class="text-center">
 	<h1>商品の新規投稿</h1>
 	<%= form_for @cd, url: admin_cds_path do |f| %>
 
@@ -6,7 +8,7 @@
 	<%= f.text_field :title, class:"" %></p>
 
 	<p class="new-artist">アーティスト<br>
-	<%= f.select :artist_id, class:"" %></p>
+	<%= f.collection_select(:artist_id, Artist.all, :id, :name, {promot: ""} ) %></p>
 
 	<p class="new-jacket-image">ジャケット画像<br>
 	<%= f.attachment_field :image, class:"center-block" %></p>
@@ -15,24 +17,30 @@
 	<%= f.text_field :price, class:"" %></p>
 
 	<p class="new-release">発売日<br>
-	<%= f.text_field :release_date, class:"" %></p>
+	<%= f.date_field :release_date, class:"" %></p>
 
 	<p class="new-label">レーベル<br>
-	<%= f.select :label_id, class:"" %></p>
+	<%= f.collection_select(:label_id, Label.all, :id, :name, {promot: ""} ) %></p>
 
 	<p class="new-genre">ジャンル<br>
-	<%= f.select :genre_id, class:"" %></p>
+	<%= f.collection_select(:genre_id, Genre.all, :id, :name, {promot: ""} ) %></p>
 
 	<p class="new-type">タイプ<br>
-	<%= f.select :type, class:"" %></p>
+	<%= f.select :type, Cd.types.keys.to_a, {} %></p>
 
-	<p class="new-song-title">曲名<br>
-	<%= form_for @song, url: admin_cds_path do |f| %>
-	<%= f.text_area :song, class:"" %></p>
+	<div id="discs" class="new-disc">
+		<%= f.fields_for :discs do |f| %>
+			<%= render 'disc_fields', f: f %>
+		<% end %>
+		<div>
+			<%= link_to_add_association "ディスク追加", f, :discs %>
+		</div>
+    </div>
+
+
 
 	<p class="create"><%= f.submit '商品を追加する', class:"" %></p>
 
-    <% end %>
 
     <% end %>
 </div>
