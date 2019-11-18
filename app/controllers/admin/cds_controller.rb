@@ -22,7 +22,7 @@ class Admin::CdsController < ApplicationController
   def update
     @cd = Cd.find(params[:id])
     @cd.update(cd_params)
-    redirect_to admin_cds_path
+    redirect_to admin_cd_path(@cd)
   end
 
   def create

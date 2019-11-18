@@ -1,2 +1,48 @@
+<div class="new text-center">
+	<h1>商品の編入</h1>
+	<%= form_for @cd, url: admin_cd_path(@cd) do |f| %>
+
+	<p class="new-title">タイトル<br>
+	<%= f.text_field :title, class:"" %></p>
+
+	<p class="new-artist">アーティスト<br>
+	<%= f.collection_select(:artist_id, Artist.all, :id, :name, {promot: ""} ) %></p>
+
+	<p class="new-jacket-image">ジャケット画像<br>
+	<%= f.attachment_field :image, class:"center-block" %></p>
+
+	<p class="new-price">価格（税別）<br>
+	<%= f.text_field :price, class:"" %></p>
+
+	<p class="new-release">発売日<br>
+	<%= f.date_field :release_date, class:"" %></p>
+
+	<p class="new-label">レーベル<br>
+	<%= f.collection_select(:label_id, Label.all, :id, :name, {promot: ""} ) %></p>
+
+	<p class="new-genre">ジャンル<br>
+	<%= f.collection_select(:genre_id, Genre.all, :id, :name, {promot: ""} ) %></p>
+
+	<p class="new-type">タイプ<br>
+	<%= f.select :type, Cd.types.keys.to_a, {} %></p>
+
+	<div id="discs" class="new-disc">
+		<%= f.fields_for :discs do |f| %>
+			<%= render 'disc_fields', f: f %>
+		<% end %>
+		<div>
+			<%= link_to_add_association "ディスク追加", f, :discs %>
+		</div>
+    </div>
+
+
+
+	<p class="create"><%= f.submit '商品を更新する', class:"" %></p>
+
+
+    <% end %>
+</div>
+
+
 
 
