@@ -9,13 +9,24 @@
 		<li class="cd-price list-group-item"><%= @cd.price %></li>
 		<li class="cd-label list-group-item"><%= @cd.label_id %></li>
 		<li class="cd-genre list-group-item"><%= @cd.genre_id %></li>
+		<li class="cd-genre list-group-item"><%= @cd.type %></li>
 	</ul>
 	<%= link_to "編集", edit_admin_cd_path(@cd), class:"" %>
 	<%= link_to "削除", admin_cd_path, class:"" %>
 </div>
 
-<div class="col-lg-12">
-	<p><%= @cd.song_title.song %></p>
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <h4>収録曲</h4>
+    <% @discs.each do |disc| %>
+      <p><label>ディスクNo.</label><%= disc.disc_number %></p>
+      <ul class="song-list">
+        <% disc.song_titles.each do |song_title| %>
+          <li><%= song_title.song %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
 
 

@@ -6,7 +6,7 @@ class Admin::CdsController < ApplicationController
 
   def show
     @cd = Cd.find(params[:id])
-    @cds = Cd.new
+    @discs = @cd.discs
   end
 
   def edit
@@ -15,7 +15,8 @@ class Admin::CdsController < ApplicationController
 
   def new
     @cd = Cd.new
-    @song = SongTitle.new
+    @disc = @cd.discs.build
+    @disc.song_titles.build
   end
 
   def update
@@ -38,8 +39,9 @@ class Admin::CdsController < ApplicationController
 
   private
   def cd_params
-    params.require(:cd).permit(:title, :artist_id, :image, :price, :release_date, :label_id, :genre_id, :type, :song)
+    params.require(:cd).permit(:title, :artist_id, :image, :price, :release_date, :label_id, :genre_id, :type, discs_attributes: [:id, :disc_number, :_destroy, song_titles_attributes: [:id, :song, :_destroy]])
   end
 
 
 end
+

@@ -1,0 +1,15 @@
+<div class='nested-fields'>
+	ディスク番号<br>
+	<%= f.number_field :disc_number %>
+	<%= link_to_remove_association "ディスク削除", f %>
+</div>
+
+
+<div id="songs" class="new-song">曲名<br>
+	<%= f.fields_for :song_titles do |f| %>
+		<%= render 'song_title_fields', f: f %>
+	<% end %>
+	<div>
+		<%= link_to_add_association "曲名追加", f, :song_titles %>
+	</div>
+</div>

@@ -43,3 +43,15 @@ Enduser.create!(
    address: '東京都渋谷区渋谷3−3−3',
    phone_number: "333-3333-",
 )
+
+Artist.create!(
+   name: 'backnumber',
+)
+
+Genre.create!(
+   name: 'J-POP',
+)
+
+Label.create!(
+   name: 'avex',
+)
