@@ -1,0 +1,40 @@
+<div align="right">
+	<div class="col-lg-11">
+       <%= link_to '入荷履歴の追加', new_admin_arrival_cd_path, class: "btn btn-primary"%>
+   </div>
+</div>
+
+<br>
+
+<h2>入荷履歴</h2>
+
+<div class="contaiber">
+　　<div class="row">
+		<table class="table">
+		　　<thead></thead>
+			<tbody>
+				<% @arrival_cds.each do |arrival| %>
+			      <tr>
+					  <th>
+					  	<a>日付：<%= arrival.arrival_date.strftime("%Y-%m-%d") %></a>
+					  </th>
+
+					  <th>
+						 <a>入荷商品：<%= arrival.cd.title %></a>
+					  </th>
+
+					  <th>
+						 <a>アーティスト：<%= arrival.cd.artist.name %></a>
+					  </th>
+
+					  <th>
+						<a>入荷個数：<%= arrival.arrival_count %></a>
+					  </th>
+			      </tr>
+			    <% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<%= paginate @arrival_cds, class: "paginate" %>
