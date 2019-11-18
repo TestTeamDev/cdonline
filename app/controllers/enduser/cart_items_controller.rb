@@ -1,8 +1,7 @@
 class Enduser::CartItemsController < ApplicationController
 
   def index
-  	@user = current_enduser
-  	@cd = Cd.find(params[:id])
+    @cds = current_enduser.cart_items.all
   end
 
   def create
