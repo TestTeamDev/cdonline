@@ -1,0 +1,21 @@
+<h2>CD一覧</h2>
+<div class = "runsack-box">
+</div>
+<div class = "runsack-result">
+</div>
+<% @cds.each do |cd| %>
+ <div class="cd-box">
+   <div class="image-box">
+   </div>
+   <div class="status">
+   </div>
+   <div class="title">
+   	  <%= link_to cd.title,enduser_cd_path(cd.id) %>
+   </div>
+   <div class="artist">
+   </div>
+   <div class="release">
+   	  <%= link_to cd.release_date %>
+   </div>
+ <% end %>
+ </div>

@@ -37,6 +37,6 @@
 </div>
     <div class="col-md-2 col-md-offset-5">
       <%= link_to "編集", edit_admin_enduser_path, class:"btn btn-block btn-success" %>
-      <%= link_to "購入履歴",admin_orders_path, class:"btn btn-block btn-info" %>
-      <%= link_to "削除",endusers_leave_admin_enduser_path(@user.id), class:"btn btn-block btn-danger" %>
+      <%= link_to "購入履歴",orders_admin_enduser_path(@user.id), class:"btn btn-block btn-info" %>
+      <%= link_to "削除",leave_admin_enduser_path(@user.id), class:"btn btn-block btn-danger" %>
     </div>

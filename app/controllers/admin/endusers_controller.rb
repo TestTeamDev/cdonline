@@ -23,7 +23,7 @@ class Admin::EndusersController < ApplicationController
   def update
     @user = Enduser.find(params[:id])
     if @user.update(enduser_params)
-         flash[:notice] = "プロフィールを更新しました"
+         flash[:notice] = "You have updated successfully."
          redirect_to admin_enduser_path(@user.id)
       else
          flash[:notice] = "error"
