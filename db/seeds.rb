@@ -35,9 +35,11 @@ Enduser.create!(
 )
 end
 
+
 100.times do |n|
  first_name = Faker::Name.last_name
  last_name = Faker::Name.first_name
+
 Order.create!(
    enduser_id: 3,
    first_name: first_name,
@@ -159,6 +161,7 @@ release_date =  Faker::Time.between_dates(from: Date.today - 100, to: Date.today
 )
 end
 
+
 #order
 OrderProduct.create!(
    order_id: 1,
@@ -166,6 +169,27 @@ OrderProduct.create!(
    order_count: 5,
    subtotal_price: 5000,
 )
+
+CartItem.create!(
+   enduser_id: 1,
+   cd_id: 1,
+   item_count: 2
+)
+
+CartItem.create!(
+   enduser_id: 1,
+   cd_id: 2,
+   item_count: 4
+)
+
+TaxRate.create!(
+   )
+
+Postage.create!(
+   )
+
+
+
 
 
 
