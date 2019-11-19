@@ -14,7 +14,7 @@
 		<li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
 	</ul>
 	<%= link_to "編集", edit_admin_cd_path(@cd), class:"" %> |
-	<%= link_to "削除", admin_cd_path, class:"" %>
+	<%= link_to "削除", admin_cd_path, class:"", method: :delete %>
 </div>
 
 <div class="row">
@@ -32,6 +32,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 

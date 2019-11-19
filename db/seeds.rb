@@ -36,9 +36,26 @@ Enduser.create!(
 end
 
 
+Artist.create!(
+   name: 'backnumber',
+   name: 'ONE-OK-ROCK'
+)
+
+Genre.create!(
+   name: 'J-POP',
+   name: 'ROCK'
+)
+
+Label.create!(
+   name: 'avex',
+   name: 'sony-entertainment'
+)
+
+
 100.times do |n|
  first_name = Faker::Name.last_name
  last_name = Faker::Name.first_name
+
 
 Order.create!(
    enduser_id: 3,
@@ -68,6 +85,8 @@ Order.create!(
    postage: 500,
 )
 end
+
+
 
 #arist
 Artist.create!(
@@ -127,6 +146,7 @@ Label.create!(
 Label.create!(
    name: 'yuu-entertainment'
    )
+
 
 #CD
 100.times do |n|
