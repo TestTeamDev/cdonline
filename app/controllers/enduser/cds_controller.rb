@@ -12,7 +12,7 @@ def show
  @artist = @cd.artist
  @label = @cd.label
   #cart_itemsにcdを追加
-  @cart = Cart_items.new
+  @Cart_items = CartItem.new
 end
 
 def new

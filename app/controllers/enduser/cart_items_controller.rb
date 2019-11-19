@@ -1,12 +1,12 @@
 class Enduser::CartItemsController < ApplicationController
 
   def index
-    @cds = current_enduser.cart_items.all
+    @cds = current_user.cart_items.all
   end
 
   def create
-    @cd = CD.find(params[:id])
-    @cart = Cart_items.new
+    @cd = Cd.find(params[:id])
+    @cart = CartItems.new
     @cart.enduser_id = current_user.id
     @cart.cd_id = @cd.id
     if @cart.save!
@@ -21,7 +21,7 @@ class Enduser::CartItemsController < ApplicationController
   end
 
   def update
-  	@cart = Cart_items.find
+  	@cart = CartItems.find
   	@cart.update
   end
 

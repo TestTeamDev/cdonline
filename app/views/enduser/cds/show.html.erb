@@ -18,6 +18,6 @@
   <div class="label">
   	<p>レーベル:<%= @cd.label.name %></p>
   </div>
-    <%= form_for @cart, url:enduser_cart_items_path do |f| %>
-      <% f.submit "カートに追加する", class:"btn btn-default" %>
+    <%= form_for @Cart_items, url:enduser_cart_items_path(@cd.id) do |f| %>
+      <%= f.submit "カートに追加する", class:"btn btn-default" %>
     <% end %>
