@@ -2,7 +2,15 @@ class Admin::CdsController < ApplicationController
   def index
   	@cds = Cd.all
   	@cd = Cd.new
+    @q = Cd.ransack(params[:q])
+    cds = @q.result(distinct: true)
   end
+
+  def search
+    @q = Cd.search(search_params)
+    @cds = @q.result(distinct: true)
+  end
+
 
   def show
     @cd = Cd.find(params[:id])
@@ -41,7 +49,11 @@ class Admin::CdsController < ApplicationController
   def cd_params
     params.require(:cd).permit(:title, :artist_id, :image, :price, :release_date, :label_id, :genre_id, :type, discs_attributes: [:id, :disc_number, :_destroy, song_titles_attributes: [:id, :song, :_destroy]])
   end
+  def search_params
+    params.require(:q).permit!
+  end
 
 
 end
+
 

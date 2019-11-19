@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get 'orders', to: 'endusers#order', on: :member
     end
     resources :cds
+    get 'search', to: 'cds#search'
     resources :orders ,only: [:index, :show, :update]
     resources :genres, only: [:new, :destroy, :index, :create]
     resources :labels, only: [:create, :destroy, :index]
