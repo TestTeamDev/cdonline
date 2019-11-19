@@ -1,6 +1,7 @@
 class Enduser::EndusersController < ApplicationController
 
 	def show
+		
 	end
 
 	def edit
