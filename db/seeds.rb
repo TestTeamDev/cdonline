@@ -48,16 +48,18 @@ Enduser.create!(
 
 Artist.create!(
    name: 'backnumber',
+   name: 'ONE-OK-ROCK'
 )
 
 Genre.create!(
    name: 'J-POP',
+   name: 'ROCK'
 )
 
 Label.create!(
    name: 'avex',
+   name: 'sony-entertainment'
 )
-=======
 Order.create!(
    enduser_id: 1,
    first_name: '木村',
@@ -68,17 +70,10 @@ Order.create!(
    postage: 500,
 )
 
-Artist.create!(
-   name: 'ONE-OK-ROCK'
-   )
 
-Genre.create!(
-   name: 'ROCK'
-   )
 
-Label.create!(
-   name: 'sony-entertainment'
-   )
+
+
 
 Cd.create!(
    artist_id: 1,
