@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     resources :endusers, only: [:show, :edit, :leave, :update, :destroy]
     get 'endusers/leave', to: 'endusers#leave'
     resources :cart_items, only: [:index, :create, :destroy, :update]
-    resources :deliverly_addresses, only: [:new, :create, :destroy]
+    resources :delivery_addresses, only: [:new, :create, :destroy]
     resources :orders ,only: [:index, :show, :create]
-    resources :order_confirmations, only: [:show, :thanks]
     get 'order_confirmations/thanks', to: 'order_confirmations#thanks'
+    resources :order_confirmations, only: [:index, :thanks]
     resources :inquires, only: [:form, :create]
     get 'inquires/form', to: 'inquires#form'
     resources :reviews, only: [:create, :destroy, :edit, :update]
@@ -33,9 +33,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :endusers, only: [:index, :show, :edit, :leave, :order, :update, :destroy] do
-    get 'endusers/leave', to: 'endusers#leave', on: :member
-    get 'enduser/:id/orders', to: 'endusers#order', on: :member
+    resources :endusers, only: [:index, :show, :edit, :update, :destroy] do
+    get 'leave', to: 'endusers#leave', on: :member
+    get 'orders', to: 'endusers#order', on: :member
     end
     resources :cds
     resources :orders ,only: [:index, :show, :update]

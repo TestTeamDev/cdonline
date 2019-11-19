@@ -1,0 +1,23 @@
+<h2>CD詳細</h2>
+<div class="image">
+</div>
+  <div class="status">
+  </div>
+  <div class="title">
+    <p>title:<%= @cd.title %></p>
+  </div>
+  <div class="artist">
+    <p>artist name:<%= @cd.artist.name %></p>
+  </div>
+  <div class="release">
+    <p>発売日:<%= @cd.release_date %>
+  </div>
+  <div class="price">
+  	<p>価格（税込）</p>
+  </div>
+  <div class="label">
+  	<p>レーベル:<%= @cd.label.name %></p>
+  </div>
+    <%= form_for @Cart_items, url:enduser_cart_items_path(@cd.id) do |f| %>
+      <%= f.submit "カートに追加する", class:"btn btn-default" %>
+    <% end %>

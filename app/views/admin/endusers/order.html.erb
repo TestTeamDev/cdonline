@@ -1,0 +1,41 @@
+<h2><%= @user.first_name %><%= @user.last_name %>さんの購入履歴一覧</h2>
+<div class="contaiber">
+　　<div class="row">
+		<table class="table">
+		　　<thead></thead>
+			<tbody>
+			  <tr>
+			    <% @orders.each do |order| %>
+					  <th>
+					  	<%= link_to admin_order_path(order.id) do %>
+					  	<%= order.created_at.strftime("%Y-%m-%d %H:%M") %>
+					  	<% end %>
+					  </th>
+					  <th>
+						    <a>
+						    	<%= link_to admin_order_path(order.id) do %>購入合計個数：
+						        <% sum = 0 %>
+								    <% order.order_products.each do |product| %>
+								      <% sum += product.order_count %>
+								    <% end %>
+						        <%= sum %>個
+						        <% end %>
+						    </a>
+					  </th>
+					  <th>
+							<a>
+								<%= link_to admin_order_path(order.id) do %>
+								購入合計金額：<%= order.total_price %>円
+								<% end %>
+							</a>
+					  </th>
+					  <th>
+					  	<%= order.status %>
+					  </th>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
