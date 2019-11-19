@@ -14,7 +14,27 @@
   	  	   </tr>
   	  	 </thead>
   	  	 <tbody>
-  	  	  
+  	  	 	<% @cart_items.each do|item| %>
+  	  	 	   <tr>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= attachment_image_tag item.cd, :image, style: "width: 100px; height: 100px;", fallback: "no_image.png" %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= item.cd.title %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= item.cd.artist.name %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= item.cd.price %>円（税込）
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= link_to '削除',enduser_cart_item_path(item.cd.id),method: :delete, class:"btn btn-default" %>
+  	  	 	   	 </th>
+  	  	 	   </tr>
+  	  	 	<% end %>
   	  	 </tbody>
   	  </table>
   	</div>

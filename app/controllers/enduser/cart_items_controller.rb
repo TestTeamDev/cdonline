@@ -1,23 +1,24 @@
 class Enduser::CartItemsController < ApplicationController
 
   def index
-    @cds = current_user.cart_items.all
+    @user = current_endusers_enduser
+    @cart_items = @user.cart_items.all
   end
 
   def create
-    @cd = Cd.find(params[:id])
-    @cart = CartItems.new
-    @cart.enduser_id = current_user.id
-    @cart.cd_id = @cd.id
+  @cd = Cd.find(params[:id])
+  @cart = CartItem.new
+  @cart.enduser_id = current_endusers_enduser.id
+  @cart.cd_id = @cd.id
     if @cart.save!
-      redirect_to enduser_order_path
+       redirect_to enduser_cart_items_path
     end
   end
 
   def destroy
-  	@cd = Cd.find(params[:id])
-  	@cd.destroy
-  	redirect_to enduser_cart_items
+    cart_item = CartItem.find(:params[:id])
+    cart_item.destroy
+  	redirect_to enduser_cart_items_path
   end
 
   def update
