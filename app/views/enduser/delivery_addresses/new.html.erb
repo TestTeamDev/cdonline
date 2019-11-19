@@ -1,6 +1,6 @@
 <h2>配送先住所の登録</h2>
 
-<%= form_for @deliverly_address, url: enduser_deliverly_addresses_path do |f| %>
+<%= form_for @delivery_address, url: enduser_delivery_addresses_path do |f| %>
 
   <div class="form-main">
 
@@ -26,7 +26,7 @@
     <div class="form-group1">
       <label class="form-sub">住所</label>
       <br>
-      <%= f.text_field :address  %>
+      <%= f.text_area :address  %>
     </div>
 
     <div class="form-group2">

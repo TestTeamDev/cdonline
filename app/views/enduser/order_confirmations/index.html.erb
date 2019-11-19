@@ -1,0 +1,35 @@
+<h3>注文確認</h3>
+
+<% sum = 0 %>
+<% @cart_items.each do |item| %>
+<% sum += item.item_count * item.cd.price %>
+<% end %>
+<% sum_intax = (sum * @tax.tax_rate) %>
+<% sum_price = sum_intax.to_i + @postage.postage %>
+
+<h4>合計金額：￥<%= sum_price %></h4>
+
+<h4>配送先</h4>
+<br>
+
+
+<%=form_for(@order, url:enduser_orders_path) do |f| %>
+
+	<%= f.label :address, "お届け先", class: "form-label" %> <br>
+	<%= f.collection_select :address, current_endusers_enduser.delivery_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
+
+<h4>決算手段</h4>
+
+	<select name=”pry_method”>
+		<option value=”pry1”>銀行支払い</option>
+		<option value=”pry2”>代引き</option>
+		<option value=”pry3”>クレジットカード</option>
+	</select>
+
+	<br>
+	<br>
+
+	<%= f.submit "購入する", class: "btn" %>
+
+<% end %>
+

@@ -57,7 +57,7 @@ Genre.create!(
 Label.create!(
    name: 'avex',
 )
-=======
+
 Order.create!(
    enduser_id: 1,
    first_name: '木村',
@@ -90,12 +90,40 @@ Cd.create!(
    release_date: 2019-11-17,
 )
 
+Cd.create!(
+   artist_id: 1,
+   genre_id: 1,
+   label_id: 1,
+   title: '完全感覚dreamer',
+   price: 1300,
+   sell_status: 1,
+   release_date: 2019-11-17,
+)
+
 OrderProduct.create!(
    order_id: 1,
    cd_id: 1,
    order_count: 5,
    subtotal_price: 5000,
 )
+
+CartItem.create!(
+   enduser_id: 1,
+   cd_id: 1,
+   item_count: 2
+)
+
+CartItem.create!(
+   enduser_id: 1,
+   cd_id: 2,
+   item_count: 4
+)
+
+TaxRate.create!(
+   )
+
+Postage.create!(
+   )
 
 
 
