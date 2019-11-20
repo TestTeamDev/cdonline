@@ -13,14 +13,14 @@
 
 <div class ="index-center">
 	<% if sum_intax == 0 %>
-		<h4>
+		<h3>
 			カートに商品がありません
-		</h4>
+		</h3>
     <% else %>
-		<h4>
+		<h3>
 			合計金額：￥<%= sum_price %>
 		    <a class = 'text-size'>※送料<%= @postage.postage %>円を含む</a>
-		</h4>
+		</h3>
 	<% end %>
 </div>
 
@@ -30,18 +30,25 @@
 <div class ="index-center">
 	<%=form_for(@order, url:enduser_orders_path) do |f| %>
 
-		<%= f.label :address, "配送先", class: "form-label" %> <br>
+		<%= f.label :address, "配送先の選択", class: "form-label" %>&emsp;
 		<%= f.collection_select :address, current_endusers_enduser.delivery_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
 </div>
 
+<br>
+<br>
+
+	<br>
+	<br>
+
 <div class ="index-center">
-	<h5>決算手段</h5>
-    <select name=”pry_method”>
-    	    <option value=”pry”>選択してください</option>
-			<option value=”pry1”>銀行支払い</option>
-			<option value=”pry2”>代引き</option>
-			<option value=”pry3”>クレジットカード</option>
-	</select>
+	<label class = 'form-labe'>決算手段 &emsp;
+	    <select name=”pry_method”>
+	    	    <option value=”pry”>選択してください</option>
+				<option value=”pry1”>銀行支払い</option>
+				<option value=”pry2”>代引き</option>
+				<option value=”pry3”>クレジットカード</option>
+		</select>
+    </label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 </div>
 
 <br>
@@ -53,4 +60,3 @@
 </div>
 
 <% end %>
-

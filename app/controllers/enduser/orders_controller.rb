@@ -14,16 +14,19 @@ class Enduser::OrdersController < ApplicationController
 		order = Order.new(order_params)
 		cart_items = current_endusers_enduser.cart_items.all
 
+        #エンドユーザー外部キー情報の受け渡し
         order.enduser_id = current_endusers_enduser.id
 
         #order_confomationで選んだdelivey_addressの情報を受け取る
-        delivery_address = DeliveryAddress.find_by(address: params[:order][:address])
 
-		order.first_name = delivery_address.first_name
-		order.last_name = delivery_address.last_name
-		order.postcode = delivery_address.postcode
-		order.address = delivery_address.address
-		order.postage = @postage.postage
+        delivery_address = DeliveryAddress.find_by(address: params[:order][:address])
+        if DeliveryAddress.find_by(address: params[:order][:address]).present?
+			order.first_name = delivery_address.first_name
+			order.last_name = delivery_address.last_name
+			order.postcode = delivery_address.postcode
+			order.address = delivery_address.address
+			order.postage = @postage.postage
+	    end
 
 
 		#購入商品情報と購入数、小計を保存
@@ -43,13 +46,13 @@ class Enduser::OrdersController < ApplicationController
 		end
 		order.total_price += @postage.postage
 
-		if order.save!
+		if order.save
 			cart_items.each do |c|
-              c.destroy
+              # c.destroy
             end
 		  redirect_to enduser_order_confirmations_thanks_path
 		else
-			render enduser_order_confomations_path
+			render 'enduser/cart_items/index'
 		end
 
 	end
