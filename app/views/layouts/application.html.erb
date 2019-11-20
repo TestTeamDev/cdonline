@@ -38,8 +38,17 @@
       <% elsif endusers_enduser_signed_in? %>
         <div class="container">
           <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
+
+          <%= search_form_for @q, url: enduser_search_path do |f| %>
+            <div class="text-center"><p class="kyeword" style="color: #fff;">商品名、アーティスト
+              <%= f.search_field :title_or_artist_name_cont %>
+              <%= f.submit class: 'btn btn-success' %>
+              </p></div>
+              <% end %>
+
+
           <nav>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right nav-items">
               <li><%= link_to "カート一覧", enduser_cart_items_path %></li>
               <li><%= link_to "さんのマイページ", enduser_enduser_path(current_endusers_enduser.id) %></li>
               <li><%= link_to "ログアウト", destroy_endusers_enduser_session_path, method: :delete %></li>

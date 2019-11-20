@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
 	end
   end
 
+  before_action :set_search
+
+  def set_search
+    @q = Cd.ransack(params[:q])
+    @cds = @q.result(distinct: true)
+  end
+
   protected
 
   def configure_permitted_parameters

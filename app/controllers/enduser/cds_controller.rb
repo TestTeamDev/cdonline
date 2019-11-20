@@ -2,7 +2,11 @@ class Enduser::CdsController < ApplicationController
 
 def index
  @cds = Cd.all
+ @cd = Cd.new
+ @q = Cd.ransack(params[:q])
+ cds = @q.result(distinct: true)
 end
+
 
 def show
  #CDの情報取得
@@ -17,6 +21,11 @@ end
 
 def new
  @cart = Cart_items.new
+end
+
+private
+def search_params
+ params.require(:q).permit!
 end
 
 end

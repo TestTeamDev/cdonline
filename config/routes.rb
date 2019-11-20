@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :tops, only: [:top]
     get 'tops/top', to: 'tops#top'
     resources :cds, only: [:index, :show]
+    get 'search', to: 'cds#search'
     resources :endusers, only: [:show, :edit, :leave, :update, :destroy]
     get 'endusers/leave', to: 'endusers#leave'
     resources :cart_items, only: [:index, :create, :destroy, :update]
