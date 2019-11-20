@@ -1,6 +1,10 @@
 class Enduser::CartItemsController < ApplicationController
 
   def index
+    #金額表示関係
+    @tax = TaxRate.find(1)
+    @postage = Postage.find(1)
+    #カート基本情報
     @user = current_endusers_enduser
     @cart_items = @user.cart_items.all
   end
@@ -16,8 +20,8 @@ class Enduser::CartItemsController < ApplicationController
   end
 
   def destroy
-    cart_item = CartItem.find(:params[:id])
-    cart_item.destroy
+    @cart_item = CartItem.find(:params[:id])
+    @cart_item.destroy
   	redirect_to enduser_cart_items_path
   end
 
