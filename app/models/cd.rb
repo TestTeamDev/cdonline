@@ -16,6 +16,7 @@ attachment :image
 
 enum type: { シングル: 0,アルバム: 1 }
 self.inheritance_column = :_type_disabled
+acts_as_paranoid
 
 
 end

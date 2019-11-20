@@ -24,13 +24,57 @@ Enduser.create!(
    password: '111111'
 )
 
-DeliveryAddress.create!(
-   enduser_id: 1,
-   first_name: 'ざき',
-   last_name: 'かず',
-   postcode: '811-0114',
-   address: '福岡県糟屋郡志免町神宮2-12-22'
-   )
+
+Artist.create!(
+   name: 'backnumber',
+   name: 'ONE-OK-ROCK'
+)
+
+Genre.create!(
+   name: 'J-POP',
+   name: 'ROCK'
+)
+
+Label.create!(
+   name: 'avex',
+   name: 'sony-entertainment'
+)
+
+
+100.times do |n|
+ first_name = Faker::Name.last_name
+ last_name = Faker::Name.first_name
+
+
+Order.create!(
+   enduser_id: 3,
+   first_name: first_name,
+   last_name: last_name,
+   postcode: '333-3333',
+   address: '東京都渋谷区渋谷3−3−3',
+   total_price: 5000,
+   postage: 500,
+)
+Order.create!(
+   enduser_id: 2,
+   first_name: first_name,
+   last_name: last_name,
+   postcode: '333-3333',
+   address: '神奈川県横浜市中区4-34-5',
+   total_price: 10000,
+   postage: 500,
+)
+Order.create!(
+   enduser_id: 6,
+   first_name: first_name,
+   last_name: last_name,
+   postcode: '333-3333',
+   address: '千葉県市原市市原4-34-5',
+   total_price: 1500,
+   postage: 500,
+)
+end
+
 
 #arist
 Artist.create!(
@@ -91,7 +135,13 @@ Label.create!(
    name: 'yuu-entertainment'
    )
 
-Cd.create!(
+
+#CD
+100.times do |n|
+title = Faker::Food.sushi
+release_date =  Faker::Time.between_dates(from: Date.today - 100, to: Date.today + 10, period: :all)
+ Cd.create!(
+
    artist_id: 1,
    genre_id: 1,
    label_id: 1,
