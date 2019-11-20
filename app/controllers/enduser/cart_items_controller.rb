@@ -22,12 +22,12 @@ class Enduser::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(:params[:id])
     @cart_item.destroy
-  	redirect_to enduser_cart_items_path
+    redirect_to enduser_cart_items_path
   end
 
   def update
-  	@cart = CartItems.find
-  	@cart.update
+    cart_item = CartItems.find
+    cart_item.update(cart_item_item_count)
   end
 
   private
