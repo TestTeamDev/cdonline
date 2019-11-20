@@ -1,3 +1,3 @@
 class ArrivalCd < ApplicationRecord
-	belongs_to :cd, dependent: :destroy
+	belongs_to :cd
 end

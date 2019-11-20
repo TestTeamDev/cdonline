@@ -1,4 +1,4 @@
 class OrderProduct < ApplicationRecord
-	belongs_to :order, dependent: :destroy
-	belongs_to :cd, dependent: :destroy
+	belongs_to :order
+	belongs_to :cd
 end

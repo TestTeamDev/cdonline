@@ -71,7 +71,8 @@ ActiveRecord::Schema.define(version: 2019_11_13_065109) do
     t.integer "enduser_id"
     t.string "postcode"
     t.string "address"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
