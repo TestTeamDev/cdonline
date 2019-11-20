@@ -12,62 +12,25 @@ Admin.create!(
    password: 'testtest'
 )
 
-#enduser
-100.times do |n|
- first_name = Faker::Name.last_name
- last_name = Faker::Name.first_name
- reading_first_name = Faker::Food.sushi
- reading_last_name = Faker::Food.sushi
- email = Faker::Internet.free_email
- password = "000000"
- address = "東京都渋谷区渋谷１−１−１"
- phone_number = "111-1111-11#{n+1}"
 Enduser.create!(
-   first_name: first_name,
-   last_name: last_name,
-   email: email,
-   password: password,
-   reading_first_name: reading_first_name,
-   reading_last_name: reading_last_name,
-   postcode: '111-1111',
-   address: address,
-   phone_number: phone_number,
+   first_name: 'ざき',
+   last_name: 'かず',
+   reading_first_name: 'ザキ',
+   reading_last_name: 'カズ',
+   postcode: '811-0114',
+   address: '福岡県糟屋郡志免町神宮2-12-22',
+   phone_number: '888-6543',
+   email: 'te@test.com',
+   password: '111111'
 )
-end
 
-
-100.times do |n|
- first_name = Faker::Name.last_name
- last_name = Faker::Name.first_name
-
-Order.create!(
-   enduser_id: 3,
-   first_name: first_name,
-   last_name: last_name,
-   postcode: '333-3333',
-   address: '東京都渋谷区渋谷3−3−3',
-   total_price: 5000,
-   postage: 500,
-)
-Order.create!(
-   enduser_id: 2,
-   first_name: first_name,
-   last_name: last_name,
-   postcode: '333-3333',
-   address: '神奈川県横浜市中区4-34-5',
-   total_price: 10000,
-   postage: 500,
-)
-Order.create!(
-   enduser_id: 6,
-   first_name: first_name,
-   last_name: last_name,
-   postcode: '333-3333',
-   address: '千葉県市原市市原4-34-5',
-   total_price: 1500,
-   postage: 500,
-)
-end
+DeliveryAddress.create!(
+   enduser_id: 1,
+   first_name: 'ざき',
+   last_name: 'かず',
+   postcode: '811-0114',
+   address: '福岡県糟屋郡志免町神宮2-12-22'
+   )
 
 #arist
 Artist.create!(
@@ -128,45 +91,50 @@ Label.create!(
    name: 'yuu-entertainment'
    )
 
-#CD
-100.times do |n|
-title = Faker::Food.sushi
-release_date =  Faker::Time.between_dates(from: Date.today - 100, to: Date.today + 10, period: :all)
- Cd.create!(
+Cd.create!(
    artist_id: 1,
    genre_id: 1,
    label_id: 1,
-   title: title,
+   title: 'キミシダイ列車',
    price: 1000,
    sell_status: 1,
-   release_date: release_date,
+   release_date: 2016-12-4,
 )
- Cd.create!(
-   artist_id: 2,
-   genre_id: 2,
-   label_id: 2,
-   title: title,
-   price: 1000,
+
+Cd.create!(
+   artist_id: 1,
+   genre_id: 1,
+   label_id: 1,
+   title: '完全感覚dreamer',
+   price: 1300,
    sell_status: 1,
-   release_date: release_date,
+   release_date: 2016-11-4,
 )
- Cd.create!(
-   artist_id: 5,
-   genre_id: 3,
-   label_id: 3,
-   title: title,
-   price: 1000,
-   sell_status: 2,
-   release_date: release_date,
+
+Order.create!(
+   enduser_id: 1,
+   first_name: 'zaki',
+   last_name: 'kazu',
+   postcode: '333-3333',
+   address: '東京都世田谷区渋谷3−3−3',
+   status: 1,
+   total_price: 7000,
+   postage: 500,
 )
-end
 
 
 #order
 OrderProduct.create!(
    order_id: 1,
    cd_id: 1,
-   order_count: 5,
+   order_count: 2,
+   subtotal_price: 5000,
+)
+
+OrderProduct.create!(
+   order_id: 1,
+   cd_id: 2,
+   order_count: 4,
    subtotal_price: 5000,
 )
 
@@ -187,6 +155,9 @@ TaxRate.create!(
 
 Postage.create!(
    )
+
+
+
 
 
 

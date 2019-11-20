@@ -18,6 +18,6 @@ class Enduser::DeliveryAddressesController < ApplicationController
 	private
 
     def delivery_address_params
-      params.require(:delivery_address).permit(:enduser_id, :postcode, :address, :name)
+      params.require(:delivery_address).permit(:enduser_id, :postcode, :address, :first_name, :last_name)
     end
 end

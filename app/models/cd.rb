@@ -1,9 +1,9 @@
 class Cd < ApplicationRecord
 
 
-belongs_to :genre, dependent: :destroy
-belongs_to :label, dependent: :destroy
-belongs_to :artist, dependent: :destroy
+belongs_to :genre
+belongs_to :label
+belongs_to :artist
 has_many :favorits
 has_many :reviews
 has_many :cart_items

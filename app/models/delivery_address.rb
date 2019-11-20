@@ -1,3 +1,3 @@
 class DeliveryAddress < ApplicationRecord
-	belongs_to :enduser, dependent: :destroy
+	belongs_to :enduser
 end
