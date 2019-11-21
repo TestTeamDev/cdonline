@@ -129,6 +129,7 @@ OrderProduct.create!(
    cd_id: 1,
    order_count: 2,
    subtotal_price: 5000,
+   order_tax_rate: 1.1
 )
 
 OrderProduct.create!(
@@ -136,6 +137,7 @@ OrderProduct.create!(
    cd_id: 2,
    order_count: 4,
    subtotal_price: 5000,
+   order_tax_rate: 1.1
 )
 
 CartItem.create!(
@@ -149,6 +151,7 @@ CartItem.create!(
    cd_id: 2,
    item_count: 4
 )
+
 
 TaxRate.create!(
    )

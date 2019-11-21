@@ -4,7 +4,6 @@ PER = 12
 
 def index
  @cds = Cd.page(params[:page]).per(PER)
- @cds = Cd.all
  @cd = Cd.new
  @q = Cd.ransack(params[:q])
  cds = @q.result(distinct: true)

@@ -1,6 +1,6 @@
 class Enduser::OrdersController < ApplicationController
 	def index
-		@orders = current_endusers_enduser.orders.all.page(params[:page]).per(4)
+		@orders = current_endusers_enduser.orders.all.page(params[:page]).per(10)
 		@enduser = Enduser.find(current_endusers_enduser.id)
 	end
 

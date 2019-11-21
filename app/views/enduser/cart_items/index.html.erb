@@ -27,7 +27,7 @@
   	  	 	   	 </th>
   	  	 	   	 <th>
   	  	 	   	  <%= form_for item, url:enduser_cart_item_path(item.id) do |t| %>
-  	  	 	   	 	<%= t.number_field :item_count %>
+  	  	 	   	 	<%= t.number_field :item_count, min: 1 %>
   	  	 	   	 	<%= t.submit "数量を変更する",class:"btn btn-default" %>
   	  	 	   	 	<% end %>
   	  	 	   	 </th>
