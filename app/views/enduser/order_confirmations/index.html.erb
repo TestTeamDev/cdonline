@@ -6,18 +6,23 @@
 
 <% sum = 0 %>
 <% @cart_items.each do |item| %>
-<% sum += item.item_count * item.cd.price %>
+  <% sum += item.item_count * item.cd.price %>
 <% end %>
 <% sum_intax = (sum * @tax.tax_rate) %>
 <% sum_price = sum_intax.to_i + @postage.postage %>
 
 <div class ="index-center">
-	<h4>
-		合計金額：￥<%= sum_price %>
-	    <a class = 'text-size'>※送料<%= @postage.postage %>円を含む</a>
-	</h4>
+	<% if sum_intax == 0 %>
+		<h4>
+			カートに商品がありません
+		</h4>
+    <% else %>
+		<h4>
+			合計金額：￥<%= sum_price %>
+		    <a class = 'text-size'>※送料<%= @postage.postage %>円を含む</a>
+		</h4>
+	<% end %>
 </div>
-
 
 <br>
 <br>
@@ -32,7 +37,7 @@
 <div class ="index-center">
 	<h5>決算手段</h5>
     <select name=”pry_method”>
-    	    <option value=”pry”>選択</option>
+    	    <option value=”pry”>選択してください</option>
 			<option value=”pry1”>銀行支払い</option>
 			<option value=”pry2”>代引き</option>
 			<option value=”pry3”>クレジットカード</option>
