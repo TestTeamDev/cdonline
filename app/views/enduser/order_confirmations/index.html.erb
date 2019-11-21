@@ -1,3 +1,23 @@
+<% if flash[:create_false] %>
+	<div id="error_explanation" class="alert alert-danger">
+	    <%= flash[:create_false] %>
+	</div>
+<% end %>
+
+
+<div>
+<% if @order.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+          	<p><%= @order.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
 <div class ="index-center">
 　　<h3>注文確認</h3>
 </div>
@@ -27,28 +47,55 @@
 <br>
 <br>
 
+<!-- delibery_addressでの送り先住所選択 -->
 <div class ="index-center">
 	<%=form_for(@order, url:enduser_orders_path) do |f| %>
-
+	<% if current_endusers_enduser.delivery_addresses.present? %>
+	<%= radio_button_tag( "address_button", 1 ) %>
 		<%= f.label :address, "配送先の選択", class: "form-label" %>&emsp;
-		<%= f.collection_select :address, current_endusers_enduser.delivery_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
+		<%= select_tag "address_id", options_from_collection_for_select(current_endusers_enduser.delivery_addresses.all, :id, :address), :prompt => "選択してください", class: "form-field" %>
+	<% end %>
 </div>
 
 <br>
 <br>
 
-	<br>
-	<br>
+<!-- 新規住所を記入しての住所記入 -->
+<div>
+	<div class="index-center">
+	  <label class="form-label">
+	    <%= radio_button_tag( "address_button", 2 ) %>新しい住所を設定する&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	  </label>
+	  <br>
+	  <label class="form-sub">受取人の苗字：</label><%= f.text_field :first_name %>
+	  <br>
+	   <label class="form-sub">受取人の名前：</label><%= f.text_field :last_name %>
+	</div>
 
-<div class ="index-center">
-	<label class = 'form-labe'>決算手段 &emsp;
-	    <select name=”pry_method”>
-	    	    <option value=”pry”>選択してください</option>
-				<option value=”pry1”>銀行支払い</option>
-				<option value=”pry2”>代引き</option>
-				<option value=”pry3”>クレジットカード</option>
-		</select>
-    </label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	<div class="index-center">
+	  <label class="yuubin">郵便番号&emsp;&emsp;&emsp;:</label>
+	  <%= f.text_field :postcode  %>
+	</div>
+
+	<div class="index-center">
+	  <label class="zyuusyo">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;住所&emsp;&emsp;&emsp;&emsp;&emsp;:</label>
+	  <%= f.text_field :address , :size => "40*40" %>
+	</div>
+</div>
+
+		<br>
+		<br>
+
+	<div class ="index-center">
+		<label class = 'form-labe'>決算手段 &emsp;
+		    <select name=”pry_method”>
+		    	    <option value=”pry”>選択してください</option>
+					<option value=”pry1”>銀行支払い</option>
+					<option value=”pry2”>代引き</option>
+					<option value=”pry3”>クレジットカード</option>
+			</select>
+	    </label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+	</div>
 </div>
 
 <br>
