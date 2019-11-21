@@ -70,6 +70,9 @@ background-image: url(image5.jpg);
 opacity: 0.6;
 }
 
+
+
+
 /* ユウの領域*/
 .form-body {
       width: 500px;
@@ -84,7 +87,7 @@ opacity: 0.6;
        margin-right: auto;
        margin-left : auto;
        font-weight: bold;
-       color: #6091d3;/*文字色*/
+       color: black;/*文字色*/
        background: #FFF;
        border: solid 3px #6091d3;/*線*/
        border-radius: 10px;/*角の丸み*/
@@ -117,15 +120,35 @@ opacity: 0.6;
 }
 
 .aa {
-     margin-left: 30px;
-
+     margin-left: 60px;
 }
 
 .bb{
   margin-right: 30px;
-
 }
 
+.taikai {
+     width: 400px;
+     height: 200px;
+     padding: 50px;
+     margin-top: 100px;
+     margin-right: auto;
+     margin-left : auto;
+     background: #DDDDDD;
+}
+
+.yes {
+  margin-left: 650px;
+  margin-top: 30px;
+  background: #DDDDDD;
+}
+
+.no {
+  margin-right: 650px;
+  margin-top: 30px;
+  background: #DDDDDD;
+
+}
 
 
 

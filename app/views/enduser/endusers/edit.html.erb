@@ -1,3 +1,21 @@
+<div>
+<% if @enduser.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <p><%= @enduser.errors.count %>errors prohibited this obj from being saved</p>
+           <ul>
+              <% @enduser.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+           </ul>
+          </div>
+<% end %>
+</div>
+
+
+
+
+
+
 <div class="editbody">
 
 
@@ -55,7 +73,7 @@
  　 </div>
 
     <div class="actions">
-    <%= f.submit "update Enduser" %>
+    <h3><%= f.submit "更新" %></h3>
     </div>
 
 <% end %>

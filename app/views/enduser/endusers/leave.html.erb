@@ -1,1 +1,13 @@
-あああああ
+<div class="taikai">
+	<h2>本当に退会しますか？</h2>
+</div>
+
+<div class="yes" style="float:left;">
+<h2><%= link_to "はい", enduser_enduser_path(@enduser.id),method: :delete, "data-confirm" => "本当に削除しますか？？" %></h2>
+</div>
+
+
+<div class="no" style="float:right;">
+
+	<h2><%= link_to "いいえ", enduser_enduser_path(current_endusers_enduser.id) %></h2>
+</div>

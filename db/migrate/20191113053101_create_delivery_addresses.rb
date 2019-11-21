@@ -4,7 +4,8 @@ class CreateDeliveryAddresses < ActiveRecord::Migration[5.2]
       t.integer :enduser_id
       t.string :postcode
       t.string :address
-      t.string :name
+      t.string :first_name
+      t.string :last_name
 
       t.timestamps
     end

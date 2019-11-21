@@ -7,5 +7,6 @@ class Enduser::DeliverlyAddressesController < ApplicationController
 	end
 
 	def destroy
+
 	end
 end
