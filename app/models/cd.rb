@@ -17,5 +17,4 @@ attachment :image
 enum type: { シングル: 0,アルバム: 1 }
 self.inheritance_column = :_type_disabled
 
-
 end

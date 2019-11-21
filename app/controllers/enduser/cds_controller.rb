@@ -1,7 +1,9 @@
 class Enduser::CdsController < ApplicationController
 
+PER = 12
+
 def index
- @cds = Cd.all
+ @cds = Cd.page(params[:page]).per(PER)
 end
 
 def show
@@ -13,7 +15,7 @@ def show
  @artist = @cd.artist
  @label = @cd.label
   #cart_itemsにcdを追加
-  @Cart_items = CartItem.new
+ @Cart_items = CartItem.new
 end
 
 def new
