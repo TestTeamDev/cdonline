@@ -14,9 +14,43 @@
   	  	   </tr>
   	  	 </thead>
   	  	 <tbody>
-  	  	  
+  	  	 	<% @cart_items.each do|item| %>
+  	  	 	   <tr>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= attachment_image_tag item.cd, :image, style: "width: 100px; height: 100px;", fallback: "no_image.png" %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= item.cd.title %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= item.cd.artist.name %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	  <%= form_for item, url:enduser_cart_item_path(item.id) do |t| %>
+  	  	 	   	 	<%= t.number_field :item_count %>
+  	  	 	   	 	<%= t.submit "数量を変更する",class:"btn btn-default" %>
+  	  	 	   	 	<% end %>
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+                <% sum = 0 %>
+                <% sum += item.item_count * item.cd.price %>
+  	  	 	   	 	<% sum_intax = (sum * @tax.tax_rate) %>
+                <%= sum_intax.to_i %>円（税込）円
+  	  	 	   	 </th>
+  	  	 	   	 <th>
+  	  	 	   	 	<%= link_to '削除',enduser_cart_item_path(item.id),method: :delete, class:"btn btn-default" %>
+  	  	 	   	 </th>
+  	  	 	   </tr>
+  	  	 	<% end %>
   	  	 </tbody>
   	  </table>
+  	  　  	<% sum = 0 %>
+  	  	 	<% @cart_items.each do |item| %>
+  	  	 	<% sum += item.item_count * item.cd.price %>
+  	  	 	<% end %>
+          <% sum_intax = (sum * @tax.tax_rate) %>
+  	  	 	小計<%= sum_intax.to_i %>円（税込）
+  	    <%= link_to 'ご購入手続きへ', enduser_order_confirmations_path,class: "btn btn-default" %>
   	</div>
   </div>
 </div>

@@ -1,28 +1,36 @@
 class Enduser::CartItemsController < ApplicationController
 
   def index
-    @cds = current_endusers_enduser.cart_items.all
+    #金額表示関係
+    @tax = TaxRate.find(1)
+    @postage = Postage.find(1)
+    #カート基本情報
+    @user = current_endusers_enduser
+    @cart_items = @user.cart_items.all
   end
 
   def create
-    @cd = Cd.find(params[:id])
-    @cart = CartItems.new
-    @cart.enduser_id = current_endusers_enduser.id
-    @cart.cd_id = @cd.id
+  @cd = Cd.find(params[:id])
+  @cart = CartItem.new
+  @cart.enduser_id = current_endusers_enduser.id
+  @cart.cd_id = @cd.id
     if @cart.save!
-      redirect_to enduser_order_path
+       redirect_to enduser_cart_items_path
     end
   end
 
   def destroy
-  	@cart = CartItems.find(params[:id])
-  	@cart.destroy
-  	redirect_to enduser_cart_items
+
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to enduser_cart_items_path
+
   end
 
   def update
-  	@cart = CartItems.find
-  	@cart.update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to enduser_cart_items_path
   end
 
   private
