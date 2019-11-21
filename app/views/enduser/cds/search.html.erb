@@ -1,0 +1,17 @@
+<div class="container">
+     <% @cds.each do |cd| %>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= link_to cd.title,enduser_cd_path(cd.id) %>
+                </h4>
+                <p class="card-text"><%= cd.artist.name %></p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+      <%= paginate @cds %>
+   </div>
+</div>
