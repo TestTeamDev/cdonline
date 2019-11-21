@@ -16,6 +16,8 @@ class Enduser::OrdersController < ApplicationController
 
         #エンドユーザー外部キー情報の受け渡し
         order.enduser_id = current_endusers_enduser.id
+
+        #ラジオボタンの情報受け取り　１：Deliveryaddressからの選択
         if params[:address_button].to_i == 1
 
             #order_confomationで選んだdelivey_addressの情報を受け取る
@@ -28,13 +30,16 @@ class Enduser::OrdersController < ApplicationController
 				order.address = delivery_address.address
 				order.postage = @postage.postage
 	    	end
+	    #ラジオボタンの情報受け取り　２：投稿ホームからの受け取り
 		elsif  params[:address_button].to_i == 2
            order.postage = @postage.postage
-     #       new_address = DeliveryAdress.new
-		   # new_address.enduser_id = current_endusers_enduser.id
-		   # new_address.postcode = order.postcode
-		   # new_address.address = order.address
-		   # new_address.save
+           new_address = DeliveryAddress.new
+		   new_address.enduser_id = current_endusers_enduser.id
+		   new_address.first_name = order.first_name
+		   new_address.last_name = order.last_name
+		   new_address.postcode = order.postcode
+		   new_address.address = order.address
+		   new_address.save
         else
 		end
 
@@ -57,7 +62,7 @@ class Enduser::OrdersController < ApplicationController
 
 		if order.save
 			cart_items.each do |c|
-              # c.destroy
+              c.destroy
             end
 		  redirect_to enduser_order_confirmations_thanks_path
 		else
