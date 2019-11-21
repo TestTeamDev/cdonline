@@ -1,8 +1,13 @@
-<h1>商品詳細</h1>
+<% if flash[:create] %>
+    <p class="success" style="color: green;"><%= flash[:create] %></p>
+<% end %>
+
+
+<h1 class="text-center">商品詳細</h1>
 
 <div class="col-lg-12">
 	<div class="image"><%= attachment_image_tag @cd, :image, style: "width: 100px; height: 100px;", fallback: "no_image.png" %></div>
-	<ul class="list-group">
+	<ul class="list-group container">
 		<li class="status list-group-item">販売状況：</li>
 		<li class="cd-number list-group-item">在庫数：</li>
 		<li class="cd-title list-group-item">タイトル：<%= @cd.title %></li>
@@ -13,8 +18,9 @@
 		<li class="cd-genre list-group-item">ジャンル：<%= @cd.genre.name %></li>
 		<li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
 	</ul>
-	<%= link_to "編集", edit_admin_cd_path(@cd), class:"" %> |
-	<%= link_to "削除", admin_cd_path, class:"", method: :delete %>
+	<div class="text-center"><%= link_to "編集", edit_admin_cd_path(@cd), class:"btn-sm btn-success" %> |
+	  <%= link_to "削除", admin_cd_path, class:"btn-sm btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+    </div>
 </div>
 
 <div class="row">
@@ -32,6 +38,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 

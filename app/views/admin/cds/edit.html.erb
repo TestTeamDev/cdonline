@@ -1,3 +1,15 @@
+<% if @cd.errors.any? %>
+	<div id="error_explanation" class="alert alert-danger">
+		<p><%= @cd.errors.count %>errors prohibited this obj from being saved</p>
+	<ul>
+	  <% @cd.errors.full_messages.each do |message| %>
+	  <li><%= message %></li>
+	<% end %>
+	</ul>
+	</div>
+<% end %>
+
+
 <div class="new text-center">
 	<h1>商品の編集</h1>
 	<%= form_for @cd, url: admin_cd_path(@cd) do |f| %>
@@ -42,6 +54,7 @@
 
     <% end %>
 </div>
+
 
 
 

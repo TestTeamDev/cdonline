@@ -1,5 +1,10 @@
-<h1>Inquire#inquire_mail</h1>
+<hi>お問い合わせ詳細</hi>
 
-<p>
-  <%= @greeting %>, find me in app/views/inquire_mailer/inquire_mail.html.erb
-</p>
+
+<p>日付: </p>
+<p>タイトル: <%= @inquire.title %></p>
+<p>メールアドレス: <%= @inquire.mail %></p>
+<p>ユーザー名: <%= @inquire.name %></p>
+<p>本文: <%= @inquire.body %></p>
+
+

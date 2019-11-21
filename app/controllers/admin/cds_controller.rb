@@ -29,14 +29,22 @@ class Admin::CdsController < ApplicationController
 
   def update
     @cd = Cd.find(params[:id])
-    @cd.update(cd_params)
-    redirect_to admin_cd_path(@cd)
+    if @cd.update(cd_params)
+      flash[:create] = "商品が更新されました"
+      redirect_to admin_cd_path(@cd)
+    else
+      render :edit
+    end
   end
 
   def create
     @cd = Cd.new(cd_params)
-    @cd.save
-    redirect_to admin_cds_path
+    if @cd.save
+      flash[:create] = "商品が追加されました"
+      redirect_to admin_cds_path
+    else
+      render :new
+    end
   end
 
   def destroy
