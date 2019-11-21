@@ -11,7 +11,7 @@
 <div class="contaiber">
 　　<div class="row">
 		<table class="table">
-		　　<thead></thead>
+		　　<thead><%= paginate @arrival_cds %></thead>
 			<tbody>
 				<% @arrival_cds.each do |arrival| %>
 			      <tr>
@@ -37,4 +37,5 @@
 	</div>
 </div>
 
-<%= paginate @arrival_cds, class: "paginate" %>
+
+

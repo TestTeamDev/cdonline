@@ -3,7 +3,7 @@ class Admin::LabelsController < ApplicationController
 
 
 
-    def create 
+    def create
     	@label = Label.new(label_params)
         if @label.save
            flash[:notice] = "1文字以上入力して下さい"

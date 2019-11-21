@@ -1,6 +1,6 @@
 class Enduser::OrdersController < ApplicationController
 	def index
-		@orders = current_endusers_enduser.orders.all
+		@orders = current_endusers_enduser.orders.all.page(params[:page]).per(4)
 		@enduser = Enduser.find(current_endusers_enduser.id)
 	end
 
@@ -14,17 +14,34 @@ class Enduser::OrdersController < ApplicationController
 		order = Order.new(order_params)
 		cart_items = current_endusers_enduser.cart_items.all
 
+        #エンドユーザー外部キー情報の受け渡し
         order.enduser_id = current_endusers_enduser.id
 
-        #order_confomationで選んだdelivey_addressの情報を受け取る
-        delivery_address = DeliveryAddress.find_by(address: params[:order][:address])
+        #ラジオボタンの情報受け取り　１：Deliveryaddressからの選択
+        if params[:address_button].to_i == 1
 
-		order.first_name = delivery_address.first_name
-		order.last_name = delivery_address.last_name
-		order.postcode = delivery_address.postcode
-		order.address = delivery_address.address
-		order.postage = @postage.postage
+            #order_confomationで選んだdelivey_addressの情報を受け取る
+        	delivery_address = DeliveryAddress.find_by(id: params[:address_id])  #find(params[:order][:address)でも可
 
+        	if DeliveryAddress.find_by(id: params[:address_id]).present?
+				order.first_name = delivery_address.first_name
+				order.last_name = delivery_address.last_name
+				order.postcode = delivery_address.postcode
+				order.address = delivery_address.address
+				order.postage = @postage.postage
+	    	end
+	    #ラジオボタンの情報受け取り　２：投稿ホームからの受け取り
+		elsif  params[:address_button].to_i == 2
+           order.postage = @postage.postage
+           new_address = DeliveryAddress.new
+		   new_address.enduser_id = current_endusers_enduser.id
+		   new_address.first_name = order.first_name
+		   new_address.last_name = order.last_name
+		   new_address.postcode = order.postcode
+		   new_address.address = order.address
+		   new_address.save
+        else
+		end
 
 		#購入商品情報と購入数、小計を保存
 		cart_items.each do |c|
@@ -43,13 +60,14 @@ class Enduser::OrdersController < ApplicationController
 		end
 		order.total_price += @postage.postage
 
-		if order.save!
+		if order.save
 			cart_items.each do |c|
               c.destroy
             end
 		  redirect_to enduser_order_confirmations_thanks_path
 		else
-			render enduser_order_confomations_path
+		  flash[:create_false]  = "配送先を指定してください"
+		  redirect_to enduser_order_confirmations_path
 		end
 
 	end

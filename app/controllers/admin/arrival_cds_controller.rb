@@ -5,13 +5,16 @@ class Admin::ArrivalCdsController < ApplicationController
 	end
 
 	def index
-		@arrival_cds = ArrivalCd.page(params[:page]).reverse_order
+		@arrival_cds = ArrivalCd.page(params[:page]).per(20)
 	end
 
 	def create
 		@arrival_cd = ArrivalCd.new(arrival_cd_params)
-		@arrival_cd.save
-		redirect_to admin_arrival_cds_path
+		if @arrival_cd.save
+		  redirect_to admin_arrival_cds_path
+	    else
+	    	render 'new'
+	    end
 	end
 
 	private

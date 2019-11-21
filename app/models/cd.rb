@@ -18,8 +18,10 @@ enum type: { シングル: 0,アルバム: 1 }
 self.inheritance_column = :_type_disabled
 acts_as_paranoid
 
+
 validates :title, presence: true
 validates :type, presence: true
 validates :price, presence: true
 validates :release_date, presence: true
+
 end

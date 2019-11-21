@@ -1,15 +1,3 @@
-<div>
-<% if @arrival_cd.errors.any? %>
-          <div id="error_explanation" class="alert alert-danger">
-          	<p><%= @arrival_cds.errors.count %>errors prohibited this obj from being saved</p>
-           <ul>
-              <% @arrival_cds.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-           </ul>
-          </div>
-<% end %>
-</div>
 
 <br>
 
@@ -36,7 +24,7 @@
     <div class="form-group1">
       <label class="form-sub">入荷日</label>
       <br>
-      <%= t.date_field :arrival_date  %>
+      <%= t.date_select :arrival_date  %>
     </div>
 
     <br>
