@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
 	def index
-		@orders = Order.page(params[:page]).reverse_order.includes(:order_products)
+		@orders = Order.page(params[:page]).per(20)
 	end
 
 	def show
@@ -10,8 +10,10 @@ class Admin::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		@order.update(order_params)
-		redirect_to admin_orders_path
+		if @order.update(order_params)
+			flash[:success_update]  = "アップデートに成功しました"
+		   redirect_to admin_orders_path
+	    end
 	end
 
 	private
