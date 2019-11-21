@@ -40,10 +40,10 @@
           <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
 
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-            <div class="text-center"><p class="kyeword" style="color: #fff;">商品名、アーティスト
+            <div class="text-center search"><p class="kyeword" style="color: #fff;">商品名、アーティスト
               <%= f.search_field :title_or_artist_name_cont %>
-              <%= f.submit class: 'btn btn-success' %>
-              </p></div>
+              <%= f.submit class: 'btn btn-success' %></p>
+            </div>
               <% end %>
 
 
@@ -57,9 +57,16 @@
         </div>
       <% else %>
         <div class="container">
-          <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
+          <div class="cdonline"><%= link_to "CD NEXT ONLINE", root_path, id: "logo"%></div>
+          <%= search_form_for @q, url: enduser_search_path do |f| %>
+        <div class="text-center"><p class="kyeword" style="color: #fff;">商品名、アーティスト
+          <%= f.search_field :title_or_artist_name_cont %>
+          <%= f.submit class: 'btn btn-success' %></p>
+        </div>
+          <% end %>
+
           <nav>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right nav-items">
                <li><%= link_to "新規登録", new_endusers_enduser_registration_path %></li>
                    <li><%= link_to "ログイン", new_endusers_enduser_session_path %></li>
             </ul>
@@ -67,6 +74,11 @@
         </div>
       <% end %>
     </header>
+
     <%= yield %>
+
+    <footer>
+      <p class="inquire"><%= link_to "お問い合わせ", enduser_inquires_form_path %></p>
+    </footer>
   </body>
 </html>
