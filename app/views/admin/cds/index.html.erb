@@ -10,6 +10,9 @@
 
 
 <div class="container maincontents">
+	<% if flash[:create] %>
+	    <p class="success" style="color: green;"><%= flash[:create] %></p>
+    <% end %>
 	<h1>販売商品一覧</h1>
 
 	<div class="col-lg-12">
@@ -38,4 +41,5 @@
 		</table>
 	</div>
 </div>
+
 

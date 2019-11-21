@@ -40,9 +40,9 @@
           <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
 
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-            <div class="text-center search"><p class="kyeword" style="color: #fff;">商品名、アーティスト
-              <%= f.search_field :title_or_artist_name_cont %>
-              <%= f.submit class: 'btn btn-success' %></p>
+            <div class="text-center search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
+              <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
+              <%= f.submit class: 'btn btn-success' %></div>
             </div>
               <% end %>
 
@@ -59,9 +59,9 @@
         <div class="container">
           <div class="cdonline"><%= link_to "CD NEXT ONLINE", root_path, id: "logo"%></div>
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-        <div class="text-center"><p class="kyeword" style="color: #fff;">商品名、アーティスト
-          <%= f.search_field :title_or_artist_name_cont %>
-          <%= f.submit class: 'btn btn-success' %></p>
+        <div class="text-cente search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
+          <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
+          <%= f.submit class: 'btn btn-success' %></div>
         </div>
           <% end %>
 

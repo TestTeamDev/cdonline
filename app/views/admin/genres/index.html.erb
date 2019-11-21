@@ -1,41 +1,35 @@
-<div class= "title" >
+<div class= "text-center" >
 
 <h2>ジャンル一覧</h2>
 
 </div>
 
 
-<div class="contaiber">
+<div class="container maincontents">
 
-	<div class="row">
+	<table class="table table-striped" >
+	<thead>
+		 <tr>
+			<th>ジャンル名</th>
+			<th></th>
+		</tr>
+	</thead>
+	    <% @genres.each do |genre| %>
+		<tbody>
 
-	   		<table class="table table-striped" >
-				<thead>
-
-					 <tr>
-						<th>ジャンル名</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-       				<% @genres.each do |genre| %>
-
-					        <td>
-					        	<%= genre.name %>
-					        </td>
-					        <td>
-
-					        </td>
-					        <td>
-					           <%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "本当に削除しますか？？" %>
-					        </td>
+			<tr>
+		        <td>
+		        	<%= genre.name %>
+		        </td>
+		        <td>
+		           <%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+		        </td>
+		    </tr>
 
 
-		       </tbody>
-		       <% end %>
-   			</table>
-   		</div>
-   	</div>
+	    </tbody>
+	    <% end %>
+	</table>
+
 </div>
 
