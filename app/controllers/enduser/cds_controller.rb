@@ -4,12 +4,14 @@ PER = 12
 
 def index
  @cds = Cd.page(params[:page]).per(PER)
- @cds = Cd.all
- @cd = Cd.new
  @q = Cd.ransack(params[:q])
  cds = @q.result(distinct: true)
 end
 
+def search
+  @q = Cd.search(search_params)
+  @cds = @q.result(distinct: true)
+end
 
 def show
  #CDの情報取得

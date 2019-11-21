@@ -1,28 +1,26 @@
-<h1>商品詳細</h1>
-
-<div class="col-lg-12">
-  <div class="image"><%= attachment_image_tag @cd, :image, style: "width: 100px; height: 100px;", fallback: "no_image.png" %></div>
-  <ul class="list-group">
-    <li class="status list-group-item">販売状況：</li>
-    <li class="cd-number list-group-item">在庫数：</li>
-    <li class="cd-title list-group-item">タイトル：<%= @cd.title %></li>
-    <li class="cd-artist list-group-item">アーティスト：<%= @cd.artist.name %></li>
-    <li class="cd-release list-group-item">発売日：<%= @cd.release_date %></li>
-    <li class="cd-price list-group-item">価格：<%= @cd.price %></li>
-    <li class="cd-label list-group-item">レーベル：<%= @cd.label.name %></li>
-    <li class="cd-genre list-group-item">ジャンル：<%= @cd.genre.name %></li>
-    <li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
-  </ul>
+<div>
+  <div class="col-lg-2 col-lg-offset-1"><%= attachment_image_tag @cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %></div>
+  <div class="col-lg-7">
+    <ul class="list-group">
+      <li class="status list-group-item">販売状況：<%= @cd.sell_status %></li>
+      <li class="cd-title list-group-item">タイトル：<%= @cd.title %></li>
+      <li class="cd-artist list-group-item">アーティスト：<%= @cd.artist.name %></li>
+      <li class="cd-release list-group-item">発売日：<%= @cd.release_date %></li>
+      <li class="cd-price list-group-item">価格：<%= @cd.price %></li>
+      <li class="cd-label list-group-item">レーベル：<%= @cd.label.name %></li>
+      <li class="cd-genre list-group-item">ジャンル：<%= @cd.genre.name %></li>
+      <li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
+    </ul>
+  </div>
  </div>
 <div class="row">
   <div class="col-md-5 col-md-offset-2">
-    <h4>収録曲</h4>
     <% @discs.each do |disc| %>
     <div class="cd-info">
-      <div class="disc"><label>ディスクNo.</label><%= disc.disc_number %></div>
-      <ul class="song-list">
+      <div class="disc"><label>No.</label><%= disc.disc_number %></div>
+      <ul class="list-group">
         <% disc.song_titles.each do |song_title| %>
-          <li><%= song_title.song %></li>
+          <li class="list-group-item"><%= song_title.song %></li>
         <% end %>
       </ul>
     </div>
