@@ -26,16 +26,19 @@
   	  	 	   	 	<%= item.cd.artist.name %>
   	  	 	   	 </th>
   	  	 	   	 <th>
-  	  	 	   	    <%= form_for item, url:enduser_cart_items_path do |t| %>
+  	  	 	   	  <%= form_for item, url:enduser_cart_item_path(item.id) do |t| %>
   	  	 	   	 	<%= t.number_field :item_count %>
-  	  	 	   	 	<%= t.submit "数量を変更する" %>
+  	  	 	   	 	<%= t.submit "数量を変更する",class:"btn btn-default" %>
   	  	 	   	 	<% end %>
   	  	 	   	 </th>
   	  	 	   	 <th>
-  	  	 	   	 	<%= item.cd.price %>円
+                <% sum = 0 %>
+                <% sum += item.item_count * item.cd.price %>
+  	  	 	   	 	<% sum_intax = (sum * @tax.tax_rate) %>
+                <%= sum_intax.to_i %>円（税込）円
   	  	 	   	 </th>
   	  	 	   	 <th>
-  	  	 	   	 	<%= link_to '削除',enduser_cart_item_path(item.cd.id),method: :delete, class:"btn btn-default" %>
+  	  	 	   	 	<%= link_to '削除',enduser_cart_item_path(item.id),method: :delete, class:"btn btn-default" %>
   	  	 	   	 </th>
   	  	 	   </tr>
   	  	 	<% end %>
@@ -43,9 +46,10 @@
   	  </table>
   	  　  	<% sum = 0 %>
   	  	 	<% @cart_items.each do |item| %>
-  	  	 	<% sum += item.cd.price %>
+  	  	 	<% sum += item.item_count * item.cd.price %>
   	  	 	<% end %>
-  	  	 	小計<%= sum_intax = (sum * @tax.tax_rate) %>円（税込）
+          <% sum_intax = (sum * @tax.tax_rate) %>
+  	  	 	小計<%= sum_intax.to_i %>円（税込）
   	    <%= link_to 'ご購入手続きへ', enduser_order_confirmations_path,class: "btn btn-default" %>
   	</div>
   </div>
