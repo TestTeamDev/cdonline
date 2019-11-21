@@ -1,0 +1,90 @@
+<div class="mypage">
+
+
+  <style type="text/css">
+    p.example { font-weight: bold; }
+  </style>
+
+     <div class="aa" style="float:left;">
+       <h3><p class="example">苗字：</p></h3>
+     </div>
+
+
+    <div style="float:left;">
+      <h3><%= @enduser.first_name %></h3>
+    </div>
+
+        <div style="clear:both;">
+        </div>
+
+     <div class="aa" style="float:left;">
+        <h3><p class="example">名前：</p></h3>
+     </div>
+
+
+     <div style="float:left;">
+        <h3><%= @enduser.last_name %></h3>
+     </div>
+
+         <div style="clear:both;">
+         </div>
+
+
+
+    <div class="aa">
+        <h4><p class="example">郵便番号</p></h4>
+        <h4><%= @enduser.postcode %></h4>
+    </div>
+
+    <p></p>
+
+
+    <div class="aa">
+       <h4><p class="example">住所</p></h4>
+       <h4><%= @enduser.address %></h4>
+    </div>
+    <p></p>
+
+
+    <div class="aa">
+        <h4><p class="example">電話番号</p></h4>
+        <h4><%= @enduser.phone_number %></h4>
+    </div>
+
+    <p></p>
+
+
+    <div class="aa">
+        <h4><p class="example">メールアドレス</p></h4>
+        <h4><%= @enduser.email %></h4>
+    </div>
+
+    <div class="bb" style="float:right;">
+        <h2><%= link_to "編集", edit_enduser_enduser_path %></h2>
+    </div>
+
+    <div style="clear:both;">
+         </div>
+
+
+     <div class="bb" style="float:right;">
+        <h2><%= link_to "購入履歴", enduser_orders_path %></h2>
+     </div>
+
+     <div style="clear:both;">
+         </div>
+
+     <div class="bb" style="float:right;">
+        <h2><%= link_to "新しい住所の追加", new_enduser_delivery_address_path %></h2>
+     </div>
+
+     <div style="clear:both;">
+         </div>
+
+     <div class="bb" style="float:right;">
+        <h2><%= link_to "退会", leave_enduser_enduser_path %></h2>
+     </div>
+
+</div>
+
+
