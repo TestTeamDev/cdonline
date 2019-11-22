@@ -21,7 +21,7 @@
 $(document).ready(function () {
   $("#theTarget").skippr({
       transition : 'slide',
-      speed : 1000,
+      speed : 2000,
       easing : 'easeOutQuart',
       navType : 'block',
       childrenElementType : 'div',
