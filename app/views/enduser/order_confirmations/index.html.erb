@@ -102,7 +102,9 @@
 <br>
 
 <div class ="index-center">
-  <%= f.submit "購入する", class: "btn" %>
+  <% if @cart_items.present? %>
+    <%= f.submit "購入する", class: "btn" %>
+  <% end %>
   <%= link_to 'カート一覧に戻る', enduser_cart_items_path, class: "btn" %>
 </div>
 

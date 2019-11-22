@@ -1,4 +1,5 @@
 class Enduser::FavoritesController < ApplicationController
+	before_action :authenticate_endusers_enduser!
 
   def create
     @favorit = Favorit.create( enduser_id:current_endusers_enduser.id,  cd_id: params[:cd_id])

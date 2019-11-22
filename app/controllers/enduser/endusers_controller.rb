@@ -1,7 +1,11 @@
 class Enduser::EndusersController < ApplicationController
+	before_action :authenticate_endusers_enduser!
 
 	def show
         @enduser = Enduser.find(params[:id])
+      if current_endusers_enduser.id != @enduser.id
+		redirect_to root_path
+	  end
     end
 
    def edit

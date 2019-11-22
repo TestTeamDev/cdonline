@@ -13,15 +13,19 @@ class Cd < ApplicationRecord
 
 	attachment :image
 
-	enum type: { シングル: 0,アルバム: 1 }
-	self.inheritance_column = :_type_disabled
-	acts_as_paranoid
-
+  enum type: { シングル: 0,アルバム: 1 }
+  enum sell_status: { 販売停止: 0, 販売中: 1 }
+  self.inheritance_column = :_type_disabled
+  acts_as_paranoid
 
 	validates :title, presence: true
 	validates :type, presence: true
 	validates :price, presence: true
 	validates :release_date, presence: true
 
-
+  def stock
+	  ar = ArrivalCd.group(:cd_id).where(cd_id: id).sum(:arrival_count)  # id = cd.id
+	  odr  = OrderProduct.group(:cd_id).where(cd_id: id).sum(:order_count)
+	  ar[id].to_i - odr[id].to_i  #id = cd.id
+  end
 end

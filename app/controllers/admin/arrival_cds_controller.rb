@@ -1,4 +1,5 @@
 class Admin::ArrivalCdsController < ApplicationController
+    before_action :authenticate_admins_admin!
 
 	def new
 		@arrival_cd = ArrivalCd.new
@@ -11,7 +12,10 @@ class Admin::ArrivalCdsController < ApplicationController
 	def create
 		@arrival_cd = ArrivalCd.new(arrival_cd_params)
 		if @arrival_cd.save
-		  redirect_to admin_arrival_cds_path
+		   cd = @arrival_cd.cd
+		   cd.sell_status = 1
+		   cd.save
+		   redirect_to admin_arrival_cds_path
 	    else
 	    	render 'new'
 	    end
