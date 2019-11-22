@@ -1,4 +1,6 @@
 class Admin::EndusersController < ApplicationController
+  before_action :authenticate_admins_admin!
+
   def index
     @users = Enduser.page(params[:page]).reverse_order
   end

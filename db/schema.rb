@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_103615) do
     t.integer "type"
     t.string "image_id"
     t.integer "price"
-    t.integer "sell_status"
+    t.integer "sell_status", default: 0
     t.date "release_date"
     t.datetime "deleted_at"
     t.integer "view_number", default: 0
@@ -71,8 +71,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_103615) do
     t.integer "enduser_id"
     t.string "postcode"
     t.string "address"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

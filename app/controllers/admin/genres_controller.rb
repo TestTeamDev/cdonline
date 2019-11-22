@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+    before_action :authenticate_admins_admin!
 
 	def new
 
@@ -43,6 +44,7 @@ class Admin::GenresController < ApplicationController
     end
 
 end
+
 
 
 

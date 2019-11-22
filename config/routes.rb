@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resources :inquires, only: [:form, :create]
     get 'inquires/form', to: 'inquires#form'
     resources :reviews, only: [:create, :destroy, :edit, :update]
-    resources :favorites, only: [:create, :destroy]
+    #resources :favorites, only: [:create, :destroy]
+    post 'favorites/:cd_id', to:'favorites#create', as: 'create_favorites'
+    delete  'favorites/:cd_id', to:'favorites#destroy', as:'destroy_favorites'
   end
 
   namespace :endusers do

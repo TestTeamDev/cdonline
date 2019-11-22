@@ -10,7 +10,7 @@ class CreateCds < ActiveRecord::Migration[5.2]
       t.integer :type
       t.string :image_id
       t.integer :price
-      t.integer :sell_status
+      t.integer :sell_status, default: 0
       t.date :release_date
       t.datetime :deleted_at
       t.integer :view_number, default: 0

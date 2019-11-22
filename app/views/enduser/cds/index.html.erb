@@ -1,18 +1,72 @@
-<div class="container">
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+</head>
+<body>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<!-- Slider全体のコンテナ -->
+<div class="swiper-container">
+  <h3>Pick up</h3>
+    <!-- Sliderの内包コンテナ -->
+    <div class="swiper-wrapper">
+        <!-- Slideさせたいコンテンツ -->
+        <% @cds.each do |cd| %>
+        <div class="swiper-slide">
+          <%=link_to enduser_cd_path(cd.id) do %>
+           <%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %>
+          <% end %>
+        </div>
+        <% end %>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<div class="cd-index container">
+  <h3>All Items</h3>
      <% @cds.each do |cd| %>
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <%= link_to cd.title,enduser_cd_path(cd.id) %>
-                </h4>
-                <p class="card-text"><%= cd.artist.name %></p>
-              </div>
-            </div>
+              <ul class="list-group">
+                <li class="image list-group-item">
+                  <%=link_to enduser_cd_path(cd.id) do %>
+                   <%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %>
+                  <% end %>
+                </li>
+                <li class="status list-group-item"><%= cd.sell_status %>
+                <li class="title list-group-item"><%= cd.title %></li>
+                <li class="artist list-group-item"><%= cd.artist.name %></li>
+                <li class="good list-group-item">
+                  <i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
+                  <%= cd.favorits.count %> いいね
+                </li>
+              </ul>
           </div>
       <% end %>
+    <div style="text-align:center">
       <%= paginate @cds %>
+    </div>
    </div>
 </div>
-<!-- /.container -->
+</div>
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // ここからオプション
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 5,
+    spaceBetween: 20,
+    initialSlide: 2,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  })
+ </script>
+</body>
+</html>
