@@ -1,5 +1,26 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+</head>
+<body>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<!-- Slider全体のコンテナ -->
+<div class="swiper-container">
+    <!-- Sliderの内包コンテナ -->
+    <div class="swiper-wrapper">
+        <!-- Slideさせたいコンテンツ -->
+        <% @cds.each do |cd| %>
+        <div class="swiper-slide">
+          <%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %>
+          <%= link_to cd.title,enduser_cd_path(cd.id) %>
+        </div>
+        <% end %>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 </div>
-<div class="container">
+<div class="cd-index container">
      <% @cds.each do |cd| %>
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div class="card h-100">
@@ -16,3 +37,26 @@
       <%= paginate @cds %>
    </div>
 </div>
+</div>
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // ここからオプション
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 4,
+    spaceBetween: 30,
+    initialSlide: 2,
+    loop: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  })
+ </script>
+</body>
+</html>
