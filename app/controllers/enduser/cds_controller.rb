@@ -23,6 +23,7 @@ def show
  @label = @cd.label
   #cart_itemsにcdを追加
  @Cart_items = CartItem.new
+ @favorit = Favorit.new
 end
 
 def new
