@@ -11,6 +11,21 @@
       <li class="cd-genre list-group-item">ジャンル：<%= @cd.genre.name %></li>
       <li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
     </ul>
+    <% if current_endusers_enduser.already_favorited?(@cd) %>
+      <div>
+        <%= link_to enduser_destroy_favorites_path(@cd), method: :delete do %>
+          <i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
+          <%= @cd.favorits.count %> いいね
+        <% end %>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to enduser_create_favorites_path(@cd), method: :post do %>
+          <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+          <%= @cd.favorits.count %> いいね
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <div class= "col-lg-2">
     <%= form_for (@Cart_items), url:enduser_cart_items_path(id: @cd.id) do |f| %>

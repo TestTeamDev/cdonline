@@ -25,4 +25,8 @@ class Enduser < ApplicationRecord
   has_many :cart_items
   has_many :orders
 
+  def already_favorited?(cd)
+    self.favorits.exists?(cd_id: cd.id)
+  end
+
 end
