@@ -10,9 +10,9 @@
   </head>
 
   <body>
-    <header class="navbar navbar-inverse">
+    <header class="navbar-inverse">
       <% if admins_admin_signed_in? %>
-        <div class="container">
+        <div class="container" style="font-family: HGP行書体;">
           <%= link_to "CD NEXT ONLINE", admin_cds_path, id: "logo"%>
           <nav>
             <ul class="nav navbar-nav navbar-right">
@@ -36,19 +36,20 @@
           </nav>
         </div>
       <% elsif endusers_enduser_signed_in? %>
-        <div class="container">
+        <div class="container" style="font-family: HGP行書体;">
           <%= link_to "CD NEXT ONLINE", root_path, id: "logo"%>
 
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-            <div class="text-center search"><p class="kyeword" style="color: #fff;">商品名、アーティスト
-              <%= f.search_field :title_or_artist_name_cont %>
-              <%= f.submit class: 'btn btn-success' %></p>
+            <div class="search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
+              <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
+              <%= f.submit class: 'btn btn-success' %></div>
             </div>
               <% end %>
 
 
           <nav>
             <ul class="nav navbar-nav navbar-right nav-items">
+              <li><%= link_to "商品一覧", enduser_cds_path %></li>
               <li><%= link_to "カート一覧", enduser_cart_items_path %></li>
               <li><%= link_to "#{current_endusers_enduser.first_name}さんのマイページ", enduser_enduser_path(current_endusers_enduser.id) %></li>
               <li><%= link_to "ログアウト", destroy_endusers_enduser_session_path, method: :delete %></li>
@@ -56,12 +57,12 @@
           </nav>
         </div>
       <% else %>
-        <div class="container">
+        <div class="container" style="font-family: HGP行書体;">
           <div class="cdonline"><%= link_to "CD NEXT ONLINE", root_path, id: "logo"%></div>
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-        <div class="text-center"><p class="kyeword" style="color: #fff;">商品名、アーティスト
-          <%= f.search_field :title_or_artist_name_cont %>
-          <%= f.submit class: 'btn btn-success' %></p>
+        <div class="search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
+          <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
+          <%= f.submit class: 'btn btn-success' %></div>
         </div>
           <% end %>
 

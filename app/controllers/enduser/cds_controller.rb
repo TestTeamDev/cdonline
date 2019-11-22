@@ -9,6 +9,10 @@ def index
  cds = @q.result(distinct: true)
 end
 
+def search
+  @q = Cd.search(search_params)
+  @cds = @q.result(distinct: true)
+end
 
 def show
  #CDの情報取得
@@ -20,6 +24,7 @@ def show
  @label = @cd.label
   #cart_itemsにcdを追加
  @Cart_items = CartItem.new
+ @favorit = Favorit.new
 end
 
 def new

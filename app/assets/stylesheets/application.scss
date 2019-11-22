@@ -44,6 +44,7 @@
   text-decoration: none;
 }
 
+/* cd/top*/
 #container{
   height: 500px;
   width: 100%;
@@ -69,6 +70,15 @@ opacity: 0.6;
 background-image: url(image5.jpg);
 opacity: 0.6;
 }
+/* cd/top*/
+
+/* cd/index*/
+.swiper-container {
+    width: 80%;
+    height: 300px;
+}
+
+/* cd/index*/
 
 
 .form-body {
@@ -76,12 +86,12 @@ opacity: 0.6;
   margin: 0 auto;
 }
 
-.navbar{
+.navbar-inverse{
   height:100px;
 }
 
 .search{
-  position:absolute; top:55px; right:500px;
+  position:absolute; top:55px; right:600px;
 }
 
 
@@ -93,7 +103,6 @@ footer {
   background-color: black;
   height: 100px;
   text-align: center;
-  margin-top: 50px;
 }
 .inquire {
   padding-top: 30px;

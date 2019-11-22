@@ -7,7 +7,6 @@
 .genrebox {
   width: 300px; /* 横幅 */
   height: 100px; /* 高さ */
-  padding-top: 100px;
   margin: 0 auto;
 }
 
@@ -15,7 +14,6 @@
 .labelbox {
   width: 300px; /* 横幅 */
   height: 100px; /* 高さ */
-  padding-top: 150px;
   margin: 0 auto;
 
 }
@@ -23,28 +21,15 @@
 .artistbox {
   width: 300px; /* 横幅 */
   height: 100px; /* 高さ */
-  padding-top: 150px;
   margin: 0 auto;
 
 }
 
-.row {
-  width: 100%; /* 横幅 */
-  height: 50px; /* 高さ */
-  margin: 0 auto;
-  padding: 0 20%;
-}
 
-.title {
-  width: 100%; /* 横幅 */
-  height: 50px; /* 高さ */
-  margin: 0 auto;
-  padding: 0 7%;
-
-  }
 
 .field_with_errors{
   display: inline-block;
 }
+
 
 

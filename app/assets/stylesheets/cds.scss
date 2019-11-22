@@ -1,6 +1,7 @@
 // Place all the styles related to the cds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 p {
 	padding-bottom: 10px;
 }
@@ -14,4 +15,7 @@ p {
 .text-right {
 	padding-right: 30px;
 	font-weight: bold;
+}
+.success {
+	padding-top: 10px;
 }
