@@ -62,7 +62,13 @@ class Enduser::OrdersController < ApplicationController
 
 		if order.save
 			cart_items.each do |c|
-              c.destroy
+				if c.cd.stock <= 0
+					c.cd.sell_status = 0
+				else
+					c.cd.sell_status = 1
+				end
+	         c.cd.save
+             c.destroy
             end
 		  redirect_to enduser_order_confirmations_thanks_path
 		else

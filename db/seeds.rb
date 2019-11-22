@@ -140,18 +140,6 @@ OrderProduct.create!(
    order_tax_rate: 1.1
 )
 
-CartItem.create!(
-   enduser_id: 1,
-   cd_id: 1,
-   item_count: 2
-)
-
-CartItem.create!(
-   enduser_id: 1,
-   cd_id: 2,
-   item_count: 4
-)
-
 
 TaxRate.create!(
    )
