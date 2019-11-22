@@ -1,4 +1,5 @@
 class Admin::ArrivalCdsController < ApplicationController
+    before_action :authenticate_admins_admin!
 
 	def new
 		@arrival_cd = ArrivalCd.new

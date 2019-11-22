@@ -1,4 +1,6 @@
 class Enduser::OrdersController < ApplicationController
+	before_action :authenticate_endusers_enduser!
+	
 	def index
 		@orders = current_endusers_enduser.orders.all.page(params[:page]).per(10)
 		@enduser = Enduser.find(current_endusers_enduser.id)

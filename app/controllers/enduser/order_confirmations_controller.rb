@@ -1,4 +1,5 @@
 class Enduser::OrderConfirmationsController < ApplicationController
+	before_action :authenticate_endusers_enduser!
 
 	def index
 		@order = Order.new
