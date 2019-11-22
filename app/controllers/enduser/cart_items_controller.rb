@@ -35,4 +35,5 @@ class Enduser::CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:enduser_id,:cd_id,:item_count)
   end
+
 end
