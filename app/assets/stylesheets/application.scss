@@ -71,17 +71,18 @@ opacity: 0.6;
 }
 
 
+
 .form-body {
   width: 500px;
   margin: 0 auto;
 }
 
-.navbar{
+.navbar-inverse{
   height:100px;
 }
 
 .search{
-  position:absolute; top:55px; right:500px;
+  position:absolute; top:55px; right:600px;
 }
 
 
@@ -93,7 +94,6 @@ footer {
   background-color: black;
   height: 100px;
   text-align: center;
-  margin-top: 50px;
 }
 .inquire {
   padding-top: 30px;
