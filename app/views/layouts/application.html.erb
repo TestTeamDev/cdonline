@@ -78,8 +78,10 @@
 
     <%= yield %>
 
+   <% unless admins_admin_signed_in? %>
     <footer>
       <p class="inquire"><%= link_to "お問い合わせ", enduser_inquires_form_path %></p>
     </footer>
+   <% end %>
   </body>
 </html>

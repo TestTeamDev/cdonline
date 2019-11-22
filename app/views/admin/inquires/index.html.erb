@@ -1,0 +1,47 @@
+<h2>問い合わせ一覧</h2>
+
+</div>
+
+<div class="contaiber">
+
+	<div class="row">
+
+	   		<table class="table table-striped">
+				<thead>
+
+					 <tr>
+						<th>日付</th>
+						<th>ユーザー名</th>
+						<th>メールアドレス</th>
+						<th>件名</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+       				<% @inquires.each do |inquire| %>
+       				<tr>
+
+					        <td>
+					        	<%= inquire.created_at.strftime("%Y-%m-%d %H:%M") %>
+					        </td>
+					        <td>
+					        	<%= inquire.name %>
+					        </td>
+					        <td>
+					             <%= inquire.mail %>
+					        </td>
+					        <td>
+					        	 <%= inquire.title %>
+					        </td>
+					        <td>
+					             <%= link_to "詳細", admin_inquire_path(inquire) %>
+					       </td>
+
+					    </tr>
+                     <% end %>
+
+		       </tbody>
+   			</table>
+   		</div>
+   	</div>
+</div>

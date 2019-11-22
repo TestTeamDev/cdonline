@@ -12,6 +12,21 @@ Admin.create!(
    password: 'testtest'
 )
 
+Inquire.create!(
+ name: 'ザキ',
+ mail: 'aquaglass777@gmail.com',
+ title: '在庫について',
+ body: 'このCDはいつごろ再入荷しますか？',
+
+   )
+
+TaxRate.create!(
+   )
+
+Postage.create!(
+   )
+
+
 Enduser.create!(
    first_name: 'ざき',
    last_name: 'かず',
@@ -146,7 +161,6 @@ TaxRate.create!(
 
 Postage.create!(
    )
-
 
 
 

@@ -1,15 +1,26 @@
 class Admin::InquiresController < ApplicationController
 	before_action :authenticate_admins_admin!
 
-def index
-	@inquires = Inquire.all
-	@inquire = Inquire.new
-end
+	def index
+		@inquires = Inquire.all
+	end
 
-def show
-end
+	def show
+		@inquire = Inquire.find(params[:id])
+	end
 
-def update
-end
+	def update
+		@inquire = Inquire.find(params[:id])
+		@inquire.update(inquire_params)
+		redirect_to admin_inquires_path
+	end
+
+
+
+	private
+	def inquire_params
+		params.require(:inquire).permit(:re_title, :re_body)
+	end
+
 
 end

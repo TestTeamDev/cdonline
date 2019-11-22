@@ -2,7 +2,7 @@
 
 	<h1>お問い合わせフォーム</h1>
 
-	<%= form_for @inquire, url:admin_inquires_path do |f| %>
+	<%= form_for(@inquire, url:enduser_inquires_path) do |f| %>
 
 	<p>名前<br>
 	<%= f.text_field :name %></p>
