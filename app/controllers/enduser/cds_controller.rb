@@ -9,8 +9,8 @@ def index
 end
 
 def search
-  @q = Cd.search(search_params)
-  @cds = @q.result(distinct: true)
+   @q = Cd.search(search_params)
+   @cds = @q.result(distinct: true)
 end
 
 def show
