@@ -19,8 +19,28 @@
 		CDでの音楽を楽しみませんか?<br>
 		CD NEXT ONLINEは皆さんがバンドの世界観を共有できる<br>
 		架け橋になることを目標にしています。</p>
-	<div class="image">
-	  <%= image_tag 'name.png', style: "width: 300px; height: 300px;" %>
+  <div class="ranking">
+	<div class="cd-index container">
+	  <h3 style="color: white;">Ranking</h3>
+	     <% @all_ranks.each.with_index(1) do |cd, i| %>
+	          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+	              <ul class="list-group">
+	                <li class="image list-group-item">
+	                  <%=link_to enduser_cd_path(cd.id) do %>
+	                   <%= attachment_image_tag cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %>
+	                  <% end %>
+	                </li>
+	                <li class="status list-group-item">第<%= i %>位</li>
+	                <li class="title list-group-item"><%= cd.title %></li>
+	                <li class="artist list-group-item"><%= cd.artist.name %></li>
+	              </ul>
+	          </div>
+	      <% end %>
+	   </div>
+	   <div class="image">
+	    <%= image_tag 'logo3.png', style: "width: 300px; height: 300px;" %>
+	   </div>
 	</div>
+  </div>
 </div>
 
