@@ -4,8 +4,8 @@ class CreateCartItems < ActiveRecord::Migration[5.2]
       t.integer :enduser_id
       t.integer :cd_id
       t.integer :item_count
-      t.datetime :created_at
-      t.datetime :created_at
+
+      t.timestamps
     end
   end
 end

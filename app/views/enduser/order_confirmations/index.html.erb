@@ -47,6 +47,21 @@
 <br>
 <br>
 
+<!-- ラジオボタンのオンオフ機能 -->
+<script>
+$(function(){
+    var nowchecked = $('input[name=address_button]:checked').val();
+    $('input[name=address_button]').click(function(){
+        if($(this).val() == nowchecked) {
+            $(this).prop('checked', false);
+            nowchecked = false;
+        } else {
+            nowchecked = $(this).val();
+        }
+    });
+});
+</script>
+
 <!-- delibery_addressでの送り先住所選択 -->
 <div class ="index-center">
 	<%=form_for(@order, url:enduser_orders_path) do |f| %>

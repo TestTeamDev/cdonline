@@ -25,6 +25,9 @@ def show
   #cart_itemsにcdを追加
  @Cart_items = CartItem.new
  @favorit = Favorit.new
+ #詳細ページが開かれると閲覧数のカラムに＋１
+ @cd.view_number += 1
+ @cd.save
 end
 
 def new

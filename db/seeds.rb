@@ -97,6 +97,7 @@ Cd.create!(
    label_id: 1,
    title: 'キミシダイ列車',
    price: 1000,
+   type: 0,
    sell_status: 1,
    release_date: 2016-12-4,
 )
@@ -108,6 +109,7 @@ Cd.create!(
    title: '完全感覚dreamer',
    price: 1300,
    sell_status: 1,
+   type: 0,
    release_date: 2016-11-4,
 )
 
