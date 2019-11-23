@@ -71,7 +71,8 @@ ActiveRecord::Schema.define(version: 2019_11_20_103615) do
     t.integer "enduser_id"
     t.string "postcode"
     t.string "address"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -122,7 +123,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_103615) do
   end
 
   create_table "inquires", force: :cascade do |t|
-    t.datetime "created_at"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "mail"
@@ -130,7 +131,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_103615) do
     t.text "body"
     t.string "re_title"
     t.text "re_body"
-    t.datetime "update_at"
   end
 
   create_table "labels", force: :cascade do |t|
