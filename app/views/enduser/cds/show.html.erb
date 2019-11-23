@@ -30,9 +30,11 @@
     <% end %>
   </div>
 <div class= "col-lg-2">
+  <% if endusers_enduser_signed_in? %>
     <%= form_for (@Cart_items), url:enduser_cart_items_path(id: @cd.id) do |f| %>
       <%= f.submit "カートに追加する", class:"btn btn-default" %>
     <% end %>
+  <% end %>
 </div>
   <div class="col-md-4">
     <% @discs.each do |disc| %>
@@ -62,12 +64,14 @@
           </ul>
           </div>
         <% end %>
+        <% if endusers_enduser_signed_in? %>
         <h2>レビュー投稿</h2>
         <%= form_for(@review, url: enduser_reviews_path) do |f| %>
         <%= f.hidden_field :cd_id, value: @cd.id %>
         <div class="new-review-title">タイトル<br><%= f.text_field :review_title, class: "" %></div>
         <div class="new-review-body">内容<br><%= f.text_area :review_body, style: "width: 300px; height: 100px;" %></div>
         <div class="new-review-create"><%= f.submit '投稿', class: "btn btn-primary" %></div>
+        <% end %>
         <% end %>
       </div>
 
