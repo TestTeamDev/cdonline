@@ -1,4 +1,5 @@
 class Admin::ReviewsController < ApplicationController
+	before_action :authenticate_admins_admin!
 
 
     def edit

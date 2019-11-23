@@ -1,4 +1,6 @@
 class Admin::CdsController < ApplicationController
+  before_action :authenticate_admins_admin!
+
   def index
   	@cds = Cd.all
   	@cd = Cd.new

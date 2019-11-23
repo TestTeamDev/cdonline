@@ -1,4 +1,5 @@
 class Enduser::DeliveryAddressesController < ApplicationController
+	before_action :authenticate_endusers_enduser!
 
 	def new
 		@delivery_address = DeliveryAddress.new

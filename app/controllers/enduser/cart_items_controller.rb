@@ -1,4 +1,5 @@
 class Enduser::CartItemsController < ApplicationController
+  before_action :authenticate_endusers_enduser!
 
   def index
     #金額表示関係
@@ -34,4 +35,5 @@ class Enduser::CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:enduser_id,:cd_id,:item_count)
   end
+
 end
