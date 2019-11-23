@@ -25,6 +25,8 @@ def show
   #cart_itemsにcdを追加
  @Cart_items = CartItem.new
  @favorit = Favorit.new
+ @review = Review.new
+ @reviews = @cd.reviews
 end
 
 def new
