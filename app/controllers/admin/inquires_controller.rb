@@ -10,9 +10,11 @@ class Admin::InquiresController < ApplicationController
 	end
 
 	def update
-		@inquire = Inquire.find(params[:id])
-		@inquire.update(inquire_params)
+		inquire = Inquire.find(params[:id])
+		inquire.update(inquire_params)
+		InquiryMailer.send_when_admin_reply(inquire)
 		redirect_to admin_inquires_path
+
 	end
 
 
