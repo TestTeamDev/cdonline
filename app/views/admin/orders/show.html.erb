@@ -1,12 +1,15 @@
-<h3>購入者：<%= @order.first_name %><%= @order.last_name %></h3>
+<div class="container">
+  <div class="row">
+	<h3>購入者：<%= @order.first_name %><%= @order.last_name %></h3>
 
-<h3>購入日：<%= @order.created_at.strftime("%Y-%m-%d %H:%M") %></h3>
+	<h3>購入日：<%= @order.created_at.strftime("%Y-%m-%d %H:%M") %></h3>
 
-<h3>送付先：<%= @order.address %></h3>
+	<h3>送付先：<%= @order.address %></h3>
 
-<h3>ステータス：<%= @order.status %></h3>
-
-<div class="contaiber">
+	<h3>ステータス：<%= @order.status %></h3>
+  </div>
+</div>
+<div class="container">
 　　<div class="row">
 		<table class="table">
 		　　<thead></thead>
@@ -15,16 +18,16 @@
 
 				    <th><%= product.cd.title %></th>
 
-					<th><%= product.order_count %><a>個</a></th>
+					<th><%= product.order_count %>個</th>
 
-					<th><a>小計：￥<%= product.subtotal_price %></a></th>
+					<th>小計：￥<%= product.subtotal_price %></th>
 
 				  </tr>
 				<% end %>
 					<tr>
-						<th><a>購入金額合計：</a><%= @order.total_price %><a>(税込)</a></th>
+						<th>購入金額合計：<%= @order.total_price %>(税込)</th>
 
-						<th><a>送料：￥<%= @order.postage %>を含む</a></th>
+						<th>送料：￥<%= @order.postage %>を含む</th>
 					</tr>
 			</tbody>
 		</table>

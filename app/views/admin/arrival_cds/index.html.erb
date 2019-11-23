@@ -8,32 +8,41 @@
 
 <h2>入荷履歴</h2>
 
-<div class="contaiber">
+<div class="container">
 　　<div class="row">
-		<table class="table">
-		　　<thead><%= paginate @arrival_cds %></thead>
+	  <div class ="col-lg-12">
+		<table class="table tablestriped">
+		　　 <thead><%= paginate @arrival_cds %>
+			      <tr>
+			      	  <th>入荷日</th>
+			      	  <th>入荷商品</th>
+			      	  <th>アーティスト</th>
+			      	  <th>入荷個数</th>
+			      </tr>
+		    </thead>
 			<tbody>
 				<% @arrival_cds.each do |arrival| %>
 			      <tr>
 					  <th>
-					  	<a>日付：<%= arrival.arrival_date.strftime("%Y-%m-%d") %></a>
+					  	<%= arrival.arrival_date.strftime("%Y-%m-%d") %>
 					  </th>
 
 					  <th>
-						 <a>入荷商品：<%= arrival.cd.title %></a>
+						 <%= arrival.cd.title %>
 					  </th>
 
 					  <th>
-						 <a>アーティスト：<%= arrival.cd.artist.name %></a>
+						 <%= arrival.cd.artist.name %>
 					  </th>
 
 					  <th>
-						<a>入荷個数：<%= arrival.arrival_count %></a>
+						<%= arrival.arrival_count %>
 					  </th>
 			      </tr>
 			    <% end %>
 			</tbody>
 		</table>
+	  </div>
 	</div>
 </div>
 

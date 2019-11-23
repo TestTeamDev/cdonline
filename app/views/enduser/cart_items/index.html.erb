@@ -1,4 +1,3 @@
-<h2>カート一覧</h2>
 <div class="container">
   <div class="row">
   	<div class="col-lg-12">
@@ -26,10 +25,10 @@
   	  	 	   	 	<%= item.cd.artist.name %>
   	  	 	   	 </th>
   	  	 	   	 <th>
-  	  	 	   	  <%= form_for item, url:enduser_cart_item_path(item.id) do |t| %>
-  	  	 	   	 	<%= t.number_field :item_count, min: 1, max: item.cd.stock %>
-  	  	 	   	 	<%= t.submit "数量を変更する",class:"btn btn-default" %>
-  	  	 	   	 	<% end %>
+  	  	 	   	  <%= form_for item, url:enduser_cart_item_path(item.id), method: :patch do |f| %>
+    	  	 	   	 	<%= f.number_field :item_count, min: 1, max: item.cd.stock %>
+    	  	 	   	 	<%= f.submit "数量を変更する",class:"btn btn-default" %>
+                <% end %>
   	  	 	   	 </th>
   	  	 	   	 <th>
                 <% sum = 0 %>
@@ -38,7 +37,7 @@
                 <%= sum_intax.to_i %>円（税込）円
   	  	 	   	 </th>
   	  	 	   	 <th>
-  	  	 	   	 	<%= link_to '削除',enduser_cart_item_path(item.id),method: :delete, class:"btn btn-default" %>
+  	  	 	   	 	<%= link_to "削除" , enduser_cart_item_path(item.id), method: :delete, class:"btn btn-default" %>
   	  	 	   	 </th>
   	  	 	   </tr>
   	  	 	<% end %>
