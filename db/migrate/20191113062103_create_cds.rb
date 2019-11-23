@@ -14,8 +14,6 @@ class CreateCds < ActiveRecord::Migration[5.2]
       t.date :release_date
       t.datetime :deleted_at
       t.integer :view_number, default: 0
-      t.datetime :created_at
-      t.datetime :update_at
     end
   end
 end
