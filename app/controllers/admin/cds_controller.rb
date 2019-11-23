@@ -17,7 +17,7 @@ class Admin::CdsController < ApplicationController
   def show
     @cd = Cd.find(params[:id])
     @discs = @cd.discs
-    @cd.view_number += 1
+    @reviews = @cd.reviews
   end
 
   def edit
@@ -66,5 +66,7 @@ class Admin::CdsController < ApplicationController
 
 
 end
+
+
 
 

@@ -29,3 +29,4 @@ class Cd < ApplicationRecord
 	  ar[id].to_i - odr[id].to_i  #id = cd.id
   end
 end
+

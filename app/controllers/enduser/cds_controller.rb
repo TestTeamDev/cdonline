@@ -28,6 +28,8 @@ def show
  #詳細ページが開かれると閲覧数のカラムに＋１
  @cd.view_number += 1
  @cd.save
+ @review = Review.new
+ @reviews = @cd.reviews
 end
 
 def new

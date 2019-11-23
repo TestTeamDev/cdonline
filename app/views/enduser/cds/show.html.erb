@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container cd-show">
   <div class="col-md-offset-1 col-lg-3"><%= attachment_image_tag @cd, :image, style: "width: 200px; height: 200px;", fallback: "no_image.png" %></div>
   <div class="col-lg-4">
     <ul class="list-group">
@@ -11,6 +11,7 @@
       <li class="cd-genre list-group-item">ジャンル：<%= @cd.genre.name %></li>
       <li class="cd-genre list-group-item">タイプ：<%= @cd.type %></li>
     </ul>
+    <% if endusers_enduser_signed_in? %>
     <% if current_endusers_enduser.already_favorited?(@cd) %>
       <div>
         <%= link_to enduser_destroy_favorites_path(@cd), method: :delete do %>
@@ -26,6 +27,7 @@
         <% end %>
       </div>
     <% end %>
+    <% end %>
   </div>
 <div class= "col-lg-2">
     <%= form_for (@Cart_items), url:enduser_cart_items_path(id: @cd.id) do |f| %>
@@ -35,7 +37,7 @@
   <div class="col-md-4">
     <% @discs.each do |disc| %>
     <div class="cd-info">
-      <div class="disc"><label>ディスクNo.</label><%= disc.disc_number %></div>
+      <div class="disc"><label>DiscNo.</label><%= disc.disc_number %></div>
       <ul class="list-group">
         <% disc.song_titles.each do |song_title| %>
           <li class="list-group-item"><%= song_title.song %></li>
@@ -44,4 +46,53 @@
     </div>
     <% end %>
   </div>
+
 </div>
+<div class="row">
+  <div class="col-lg-12">
+
+      <div class="col-lg-4 new-review text-center">
+        <% if @review.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <p><%= @review.errors.count %>errors prohibited this obj from being saved</p>
+          <ul>
+            <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+          </div>
+        <% end %>
+        <h2>レビュー投稿</h2>
+        <%= form_for(@review, url: enduser_reviews_path) do |f| %>
+        <%= f.hidden_field :cd_id, value: @cd.id %>
+        <div class="new-review-title">タイトル<br><%= f.text_field :review_title, class: "" %></div>
+        <div class="new-review-body">内容<br><%= f.text_area :review_body, style: "width: 300px; height: 100px;" %></div>
+        <div class="new-review-create"><%= f.submit '投稿', class: "btn btn-primary" %></div>
+        <% end %>
+      </div>
+
+      <div class="col-lg-8 review container">
+        <% if flash[:create] %>
+          <p class="success" style="color: green;"><%= flash[:create] %></p>
+        <% end %>
+        <% if flash[:update] %>
+          <p class="success" style="color: green;"><%= flash[:update] %></p>
+        <% end %>
+        <h2>CDレビュー</h2>
+
+        <% @reviews.each do |r| %>
+        <ul class="review-list list-group">
+          <li class="review-title list-group-item"><%= r.review_title %></li>
+          <li class="review-body list-group-item"><%= r.review_body %></li>
+          <% if r.enduser == current_endusers_enduser %>
+          <div class="text-right">
+            <%= link_to "編集", edit_enduser_review_path(r.id), class:"btn-sm btn-success" %>
+            <%= link_to "削除", enduser_review_path(r.id), class:"btn-sm btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+          </div>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+  </div>
+</div>
+

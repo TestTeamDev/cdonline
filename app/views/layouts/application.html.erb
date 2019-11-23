@@ -68,6 +68,7 @@
 
           <nav>
             <ul class="nav navbar-nav navbar-right nav-items">
+              <li><%= link_to "商品一覧", enduser_cds_path %></li>
                <li><%= link_to "新規登録", new_endusers_enduser_registration_path %></li>
                    <li><%= link_to "ログイン", new_endusers_enduser_session_path %></li>
             </ul>
@@ -78,8 +79,10 @@
 
     <%= yield %>
 
+   <% unless admins_admin_signed_in? %>
     <footer>
       <p class="inquire"><%= link_to "お問い合わせ", enduser_inquires_form_path %></p>
     </footer>
+   <% end %>
   </body>
 </html>

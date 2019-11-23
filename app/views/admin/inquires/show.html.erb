@@ -1,0 +1,62 @@
+<h2>問い合わせ詳細</h2>
+
+
+
+<div class="toiawae">
+	<table>
+		<thead>
+			<tr>
+				<th>
+
+				</th>
+				<th>
+
+				</th>
+			</tr>
+		</thead>
+
+        <tbody>
+
+        	<tr>
+        	    <td>日付:</td>
+        		<td><%= @inquire.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        	</tr>
+        	<tr>
+        		<td>タイトル:</td>
+        		<td><%= @inquire.title %></td>
+        	</tr>
+        	<tr>
+        		<td>メールアドレス:</td>
+        		<td><%= @inquire.mail %></td>
+        	</tr>
+        	<tr>
+        		<td>ユーザー名:</td>
+        		<td><%= @inquire.name %></td>
+        	</tr>
+        	<tr>
+        		<td>詳細</td>
+        	</tr>
+        	<tr>
+        		<td><%= @inquire.body %></td>
+        	</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<%= form_for(@inquire, url:admin_inquire_path) do |f| %>
+   <h2>返信フォーム</h2>
+     <br>
+        <h4>件名</h4>
+        <p><%= f.text_field :re_title %></p>
+     <br>
+        <h4>本文</h4>
+        <p><%= f.text_area :re_body %></p>
+     <br>
+     <div class="actions">
+       <h3><%= f.submit "送信" %></h3>
+    </div>
+
+<% end %>
+
