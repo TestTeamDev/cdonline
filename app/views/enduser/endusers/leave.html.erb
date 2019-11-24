@@ -1,13 +1,15 @@
-<div class="taikai">
-	<h2>本当に退会しますか？</h2>
-</div>
+<div class="contaiber">
+	　　<div class="row">
+			<div class="taikai">
+				<h2>本当に退会しますか？</h2>
+			</div>
 
-<div class="yes" style="float:left;">
-<h2><%= link_to "はい", enduser_enduser_path(@enduser.id),method: :delete, "data-confirm" => "本当に削除しますか？？" %></h2>
-</div>
+			<ul class="inline">
 
+				<li class="font-size"><%= link_to "はい", enduser_enduser_path(@enduser.id), class:"btn-lg btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %></li>
 
-<div class="no" style="float:right;">
+				<li><%= link_to "いいえ", enduser_enduser_path(current_endusers_enduser.id) %></li>
 
-	<h2><%= link_to "いいえ", enduser_enduser_path(current_endusers_enduser.id) %></h2>
+			</ul>
+	    </div>
 </div>

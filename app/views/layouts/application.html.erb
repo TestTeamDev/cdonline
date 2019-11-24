@@ -16,6 +16,8 @@
           <%= link_to "CD NEXT ONLINE", admin_cds_path, id: "logo"%>
           <nav>
             <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "ジャンルの追加", new_admin_genre_path %></li>
+              <li><%= link_to "商品の入荷", new_admin_arrival_cd_path %></li>
               <li><%= link_to "新規商品の追加", new_admin_cd_path %></li>
               <li><%= link_to "入荷履歴", admin_arrival_cds_path %></li>
               <li class="dropdown">
@@ -44,7 +46,7 @@
               <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
               <%= f.submit class: 'btn btn-success' %></div>
             </div>
-              <% end %>
+          <% end %>
 
 
           <nav>
@@ -60,17 +62,18 @@
         <div class="container" style="font-family: HGP行書体;">
           <div class="cdonline"><%= link_to "CD NEXT ONLINE", root_path, id: "logo"%></div>
           <%= search_form_for @q, url: enduser_search_path do |f| %>
-        <div class="search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
-          <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
-          <%= f.submit class: 'btn btn-success' %></div>
-        </div>
+            <div class="search"><p class="kyeword" style="color: #fff; display: inline-block;">商品名、アーティスト</p>
+              <div class="search-form" style="display: inline-block;"><%= f.search_field :title_or_artist_name_cont %>
+                <%= f.submit class: 'btn btn-success' %>
+              </div>
+            </div>
           <% end %>
 
           <nav>
             <ul class="nav navbar-nav navbar-right nav-items">
               <li><%= link_to "商品一覧", enduser_cds_path %></li>
-               <li><%= link_to "新規登録", new_endusers_enduser_registration_path %></li>
-                   <li><%= link_to "ログイン", new_endusers_enduser_session_path %></li>
+              <li><%= link_to "新規登録", new_endusers_enduser_registration_path %></li>
+              <li><%= link_to "ログイン", new_endusers_enduser_session_path %></li>
             </ul>
           </nav>
         </div>
@@ -81,7 +84,7 @@
 
    <% unless admins_admin_signed_in? %>
     <footer>
-      <p class="inquire"><%= link_to "お問い合わせ", enduser_inquires_form_path %></p>
+      <p class="inquire"><h5 style="font-color: white"><%= link_to "お問い合わせ", enduser_inquires_form_path %></h5></p>
     </footer>
    <% end %>
   </body>

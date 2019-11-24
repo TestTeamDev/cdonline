@@ -28,8 +28,9 @@ def show
  #詳細ページが開かれると閲覧数のカラムに＋１
  @cd.view_number += 1
  @cd.save
- @review = Review.new
- @reviews = @cd.reviews
+ #view/enduser/cd/:idのreviewの投稿からform_withで飛んでくる
+ @review = @cd.reviews.build
+ @reviews = @cd.reviews  #controller/enduser/review/def createに飛ぶ
 end
 
 def new

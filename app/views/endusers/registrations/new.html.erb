@@ -1,81 +1,50 @@
-<div class="form-body">
-<h2>アカウントを作成</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div style="float:left;">
-    <%= f.label :苗字 %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "苗字" %>
+<div class="signupbackimg">
+  <div class="signup-top">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-offset-1 col-md-4 text-center">
+              <div class="form-login"></br>
+                  <h4 class="login-font">Sign up</h4>
+                  </br>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= f.label :苗字 %>
+                    <%= f.text_field :first_name, autofocus: true, autocomplete: "苗字", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    <%= f.label :名前 %>
+                    <%= f.text_field :last_name, autofocus: true, autocomplete: "名前", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :苗字「フリガナ」 %>
+                    <%= f.text_field :reading_first_name, autofocus: true, autocomplete: "苗字(フリガナ)", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    <%= f.label :名前「フリガナ」 %>
+                    <%= f.text_field :reading_last_name, autofocus: true, autocomplete: "名前(フリガナ)", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :郵便番号 %>
+                    <%= f.text_field :postcode, autofocus: true, autocomplete: "郵便番号", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :住所 %><br />
+                    <%= f.text_area :address, autofocus: true, autocomplete: "住所", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :電話番号 %><br />
+                    <%= f.text_field :phone_number, autofocus: true, autocomplete: "電話番号", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :password %>
+                    <% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em><% end %><br />
+                    <%= f.password_field :password, autocomplete: "new-password", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    </br>
+                    <div class="wrapper">
+                            <span class="group-btn">
+                              <%= f.submit "Sign up", :class => "btn btn-primary btn-md" %><i class="fa fa-sign-in"></i>
+                            </span>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+    </div>
   </div>
-
-  <div style="float:left;">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "名前" %>
-  </div>
-
-  <div style="clear:both;">
-  </div>
-
-    <div style="float:left;">
-
-   <%= f.label :苗字「フリガナ」 %><br />
-    <%= f.text_field :reading_first_name, autofocus: true, autocomplete: "苗字(フリガナ)" %>
-  </div>
-
-  <div style="float:left;">
-    <%= f.label :名前「フリガナ」 %><br />
-    <%= f.text_field :reading_last_name, autofocus: true, autocomplete: "名前(フリガナ)" %>
-  </div>
-
-
-
-
-
-
-
-
-   <div style="clear:both;">
-    <%= f.label :郵便番号 %><br />
-    <%= f.text_field :postcode, autofocus: true, autocomplete: "郵便番号" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :住所 %><br />
-    <%= f.text_area :address, autofocus: true, autocomplete: "住所" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "電話番号" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "endusers/shared/links" %>
-
-
-
 </div>

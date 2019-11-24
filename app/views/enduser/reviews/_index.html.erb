@@ -1,0 +1,13 @@
+<!--非同期でreview差し込み用のパーシャル、enduser/reviews/index.jsからのrenderで飛んでくる-->
+<% reviews.each do |r| %>
+  <ul class="review-list list-group">
+    <li class="review-title list-group-item"><%= r.review_title %></li>
+    <li class="review-body list-group-item"><%= r.review_body %></li>
+    <% if r.enduser == current_endusers_enduser %>
+      <div class="text-right">
+        <%= link_to "編集", edit_enduser_review_path(r.id), class:"btn-sm btn-success" %>
+        <%= link_to "削除", enduser_review_path(r.id), class:"btn-sm btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %>
+      </div>
+    <% end %>
+  </ul>
+<% end %>

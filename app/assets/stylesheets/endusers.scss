@@ -2,3 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.right-box {
+	padding-left: 10px;
+}
+
+.center {
+	text-align: center;
+}
+
+.inline {
+	padding :40px 0 20px 0;
+  text-align: center;
+}
+
+.inline li{
+  display: inline;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+.right-space {
+	padding-right: 10px;
+
+}
+

@@ -1,90 +1,64 @@
-<div class="mypage">
-
-
-  <style type="text/css">
-    p.example { font-weight: bold; }
-  </style>
-
-     <div class="aa" style="float:left;">
-       <h3><p class="example">苗字：</p></h3>
-     </div>
-
-
-    <div style="float:left;">
-      <h3><%= @enduser.first_name %></h3>
-    </div>
-
-        <div style="clear:both;">
+<div class="container cd-show">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>マイページ</h2>
+      <br>
+      <div class="col-lg-9">
+        <table class="table table-border">
+          <tbody>
+            <tr>
+              <th><h3>名前：</p></th>
+              <th><h3><%= @enduser.first_name %><%= @enduser.last_name %></h3></th>
+            </tr>
+            <tr>
+              <th><h3>郵便番号：</h3></th>
+              <th><h3>〒<%= @enduser.postcode %></h3></th>
+            </tr>
+            <tr>
+              <th><h3>住所：</h3></th>
+              <th><h3><%= @enduser.address %></h3></th>
+            </tr>
+            <tr>
+              <th><h3>電話番号：</h3></th>
+              <th><h3><%= @enduser.phone_number %></h3></th>
+            </tr>
+            <tr>
+              <th><h3>メールアドレス：</h3></th>
+              <th><h3><%= @enduser.email %></h3></th>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+        <table class="table">
+          <h4>配送先住所一覧</h4>
+          <tbody>
+            <% @enduser.delivery_addresses.each do |a| %>
+              <tr>
+                <th><h5>郵便番号：</h5></th>
+                <th><h5>〒<%= a.postcode %></h5></th>
+                <th><h5>住所：</h5><th>
+                <th><h5><%= a.address %></h5><th>
+                <th><%= link_to "削除", enduser_delivery_address_path(a.id), class:"btn-sm btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <br>
+      <div class="col-lg-3">
+        <div class="right-box">
+          <ul class="list-group">
+            <li class="list-group-item"><h4 class="center"><%= link_to "登録情報の編集", edit_enduser_enduser_path %></h4></li>
+            <li class="list-group-item"><h4 class="center"><%= link_to "購入履歴", enduser_orders_path %></h4></li>
+            <li class="list-group-item"><h4 class="center"><%= link_to "配送先住所を追加", new_enduser_delivery_address_path %></h4></li>
+            <li class="list-group-item"><h5 class="center"><%= link_to "退会", leave_enduser_enduser_path %></h5></li>
+          </ul>
         </div>
-
-     <div class="aa" style="float:left;">
-        <h3><p class="example">名前：</p></h3>
-     </div>
-
-
-     <div style="float:left;">
-        <h3><%= @enduser.last_name %></h3>
-     </div>
-
-         <div style="clear:both;">
-         </div>
-
-
-
-    <div class="aa">
-        <h4><p class="example">郵便番号</p></h4>
-        <h4><%= @enduser.postcode %></h4>
+      </div>
     </div>
-
-    <p></p>
-
-
-    <div class="aa">
-       <h4><p class="example">住所</p></h4>
-       <h4><%= @enduser.address %></h4>
-    </div>
-    <p></p>
-
-
-    <div class="aa">
-        <h4><p class="example">電話番号</p></h4>
-        <h4><%= @enduser.phone_number %></h4>
-    </div>
-
-    <p></p>
-
-
-    <div class="aa">
-        <h4><p class="example">メールアドレス</p></h4>
-        <h4><%= @enduser.email %></h4>
-    </div>
-
-    <div class="bb" style="float:right;">
-        <h2><%= link_to "編集", edit_enduser_enduser_path %></h2>
-    </div>
-
-    <div style="clear:both;">
-         </div>
-
-
-     <div class="bb" style="float:right;">
-        <h2><%= link_to "購入履歴", enduser_orders_path %></h2>
-     </div>
-
-     <div style="clear:both;">
-         </div>
-
-     <div class="bb" style="float:right;">
-        <h2><%= link_to "新しい住所の追加", new_enduser_delivery_address_path %></h2>
-     </div>
-
-     <div style="clear:both;">
-         </div>
-
-     <div class="bb" style="float:right;">
-        <h2><%= link_to "退会", leave_enduser_enduser_path %></h2>
-     </div>
-
+  </div>
 </div>
 
 
