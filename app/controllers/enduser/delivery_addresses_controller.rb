@@ -9,14 +9,16 @@ class Enduser::DeliveryAddressesController < ApplicationController
 		@delivery_address = DeliveryAddress.new(delivery_address_params)
 		@delivery_address.enduser_id =  current_endusers_enduser.id
 		if @delivery_address.save
-		  redirect_to root_path
+		  redirect_to enduser_enduser_path(current_endusers_enduser.id)
 		else
 			render 'new'
 		end
 	end
 
 	def destroy
-
+		delivery_address = DeliveryAddress.find(params[:id])
+        delivery_address.destroy
+        redirect_to enduser_enduser_path(current_endusers_enduser.id)
 	end
 
 	private

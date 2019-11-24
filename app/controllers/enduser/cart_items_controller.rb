@@ -23,7 +23,7 @@ class Enduser::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to enduser_cart_items_path
-　end
+  end
 
   def update
     @cart_item = CartItem.find(params[:id])
@@ -36,5 +36,4 @@ class Enduser::CartItemsController < ApplicationController
     params.require(:cart_item).permit(:enduser_id,:cd_id,:item_count)
   end
 
-end
 end

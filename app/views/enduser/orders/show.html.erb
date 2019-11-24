@@ -10,29 +10,32 @@
 
 	<h3>ステータス：<%= @order.status %></h3>
 
-</div>
 
-<div class="contaiber">
-　　<div class="row">
-		<table class="table">
-		　　<thead></thead>
-			<tbody>
-				<% @order.order_products.each do |product| %>
+	<div class="contaiber">
+	　　<div class="row">
+		  <div class="col-lg-10">
+			<table class="table">
+			　　<thead></thead>
+				<tbody>
+					<% @order.order_products.each do |product| %>
 
-				    <th><h5><%= product.cd.title %></h5></th>
+					    <th><h4><%= product.cd.title %></h4></th>
 
-					<th><h5><%= product.order_count %>個</h5></th>
+						<th><h4><%= product.order_count %>個</h4></th>
 
-					<th><h5>小計：￥<%= product.subtotal_price %></h5></th>
+						<th><h4>小計：￥<%= product.subtotal_price %></h4></th>
 
-				  </tr>
-				<% end %>
-					<tr>
-						<th><h5>購入金額合計：￥<%= @order.total_price %>(税込)</h5></th>
+					  </tr>
+					<% end %>
+						<tr>
+							<th><h4>購入金額合計：￥<%= @order.total_price %>(税込+送料)</h4></th>
 
-						<th><h5>送料：￥<%= @order.postage %>を含む</h5></th>
-					</tr>
-			</tbody>
-		</table>
+							<th><h4>送料：￥<%= @order.postage %></h4></th>
+						</tr>
+				</tbody>
+			</table>
+		  </div>
+		</div>
 	</div>
 </div>
+<br>

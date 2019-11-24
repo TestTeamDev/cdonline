@@ -113,7 +113,7 @@ Cd.create!(
    title: 'キミシダイ列車',
    price: 1000,
    type: 0,
-   sell_status: 1,
+   sell_status: 0,
    release_date: 2016-12-4,
 )
 
@@ -123,46 +123,11 @@ Cd.create!(
    label_id: 1,
    title: '完全感覚dreamer',
    price: 1300,
-   sell_status: 1,
+   sell_status: 0,
    type: 0,
    release_date: 2016-11-4,
 )
 
-Order.create!(
-   enduser_id: 1,
-   first_name: 'zaki',
-   last_name: 'kazu',
-   postcode: '333-3333',
-   address: '東京都世田谷区渋谷3−3−3',
-   status: 1,
-   total_price: 7000,
-   postage: 500,
-)
-
-
-#order
-OrderProduct.create!(
-   order_id: 1,
-   cd_id: 1,
-   order_count: 2,
-   subtotal_price: 5000,
-   order_tax_rate: 1.1
-)
-
-OrderProduct.create!(
-   order_id: 1,
-   cd_id: 2,
-   order_count: 4,
-   subtotal_price: 5000,
-   order_tax_rate: 1.1
-)
-
-
-TaxRate.create!(
-   )
-
-Postage.create!(
-   )
 
 
 
