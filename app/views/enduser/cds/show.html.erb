@@ -65,11 +65,11 @@
           </div>
         <% end %>
         <h2>レビュー投稿</h2>
-        <%= form_for(@review, url: enduser_reviews_path) do |f| %>
-        <%= f.hidden_field :cd_id, value: @cd.id %>
-        <div class="new-review-title">タイトル<br><%= f.text_field :review_title, class: "" %></div>
-        <div class="new-review-body">内容<br><%= f.text_area :review_body, style: "width: 300px; height: 100px;" %></div>
-        <div class="new-review-create"><%= f.submit '投稿', class: "btn btn-primary" %></div>
+        <%= form_with(model: @review, url: enduser_reviews_path) do |f| %>
+          <%= f.hidden_field :cd_id, value: @cd.id %>
+          <div class="new-review-title">タイトル<br><%= f.text_field :review_title, class: "" %></div>
+          <div class="new-review-body">内容<br><%= f.text_area :review_body, style: "width: 300px; height: 100px;" %></div>
+          <div class="new-review-create"><%= f.submit '投稿', class: "btn btn-primary" %></div>
         <% end %>
       </div>
 
@@ -81,19 +81,10 @@
           <p class="success" style="color: green;"><%= flash[:update] %></p>
         <% end %>
         <h2>CDレビュー</h2>
-
-        <% @reviews.each do |r| %>
-        <ul class="review-list list-group">
-          <li class="review-title list-group-item"><%= r.review_title %></li>
-          <li class="review-body list-group-item"><%= r.review_body %></li>
-          <% if r.enduser == current_endusers_enduser %>
-          <div class="text-right">
-            <%= link_to "編集", edit_enduser_review_path(r.id), class:"btn-sm btn-success" %>
-            <%= link_to "削除", enduser_review_path(r.id), class:"btn-sm btn-danger destroy", method: :delete, "data-confirm" => "本当に削除しますか？？" %>
-          </div>
-          <% end %>
-        </ul>
-        <% end %>
+　　　　　<!--非同期でのreviews差し込みをするパーシャルとjs着火用のid(comments_area)-->
+        <div id="comments_area">
+          <%= render partial: 'enduser/reviews/index', locals: { reviews: @reviews } %>
+        </div>
       </div>
   </div>
 </div>

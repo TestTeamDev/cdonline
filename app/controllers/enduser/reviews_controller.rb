@@ -2,13 +2,16 @@ class Enduser::ReviewsController < ApplicationController
 	before_action :authenticate_endusers_enduser!
 
 	def create
+		#controller/enduuser/cdのdef showから飛んでくる
 	    @review = Review.new(review_params)
+	    @cd = Cd.find(@review.cd_id)
+		@reviews = @cd.reviews
 	    @review.enduser_id = current_endusers_enduser.id
         if @review.save
         	flash[:create] = "レビューが追加されました"
-            redirect_to enduser_cd_path(@review.cd)
+        	#enduser/reviews/index.js.erbに飛ぶ
+            render "enduser/reviews/index.js.erb"
         else
-        	@cd = Cd.find(@review.cd_id)
 			 @discs = @cd.discs
 			 #cdに紐付いた情報の取得
 			 @genre = @cd.genre
@@ -17,7 +20,6 @@ class Enduser::ReviewsController < ApplicationController
 			  #cart_itemsにcdを追加
 			 @Cart_items = CartItem.new
 			 @favorit = Favorit.new
-			 @reviews = @cd.reviews
         	render "enduser/cds/show"
         end
 	end
@@ -39,7 +41,7 @@ class Enduser::ReviewsController < ApplicationController
 		@review = Review.find(params[:id])
 		if @review.update(review_params)
 			flash[:update] = "レビューが更新されました"
-			redirect_to enduser_cd_path(@review.cd)
+			render enduser_cd_path(@review.cd)
 	    else
 	    	render :edit
 	    end

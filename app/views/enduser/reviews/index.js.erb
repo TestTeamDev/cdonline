@@ -1,0 +1,5 @@
+//reviewsのエンドユーザーコントローラーのdef createから飛んでくる
+$("#comments_area").html("<%= j(render 'enduser/reviews/index', { reviews: @reviews }) %>")
+//下記の記載で投稿後に投稿フォームを空にしている。$()のカッコの中はブラウザの検証ツールで投稿フォームの属性を検証すれば確認できる
+$("input").val('')
+$("textarea").val('')
