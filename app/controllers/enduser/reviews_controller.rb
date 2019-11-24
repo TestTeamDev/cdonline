@@ -41,7 +41,7 @@ class Enduser::ReviewsController < ApplicationController
 		@review = Review.find(params[:id])
 		if @review.update(review_params)
 			flash[:update] = "レビューが更新されました"
-			render enduser_cd_path(@review.cd)
+			redirect_to enduser_cd_path(@review.cd)
 	    else
 	    	render :edit
 	    end

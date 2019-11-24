@@ -31,10 +31,10 @@
                     </br>
                     <%= f.label :password %>
                     <% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em><% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    <%= f.password_field :password, autocomplete: "new-password", :type => "password", :id => "email", :class => "form-control input-sm chat-input" %>
                     </br>
                     <%= f.label :password_confirmation %><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password", :type => "text", :id => "email", :class => "form-control input-sm chat-input" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", :type => "password", :id => "email", :class => "form-control input-sm chat-input" %>
                     </br>
                     <div class="wrapper">
                             <span class="group-btn">
