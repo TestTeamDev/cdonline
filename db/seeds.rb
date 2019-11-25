@@ -28,23 +28,23 @@ Postage.create!(
 
 
 Enduser.create!(
-   first_name: 'ざき',
-   last_name: 'かず',
-   reading_first_name: 'ザキ',
-   reading_last_name: 'カズ',
+   first_name: '田中',
+   last_name: '太郎',
+   reading_first_name: 'タナカ',
+   reading_last_name: 'タロウ',
    postcode: '811-0114',
-   address: '福岡県糟屋郡志免町神宮2-12-22',
-   phone_number: '888-6543',
+   address: '東京都渋谷区神宮2-12-22',
+   phone_number: '111-6543',
    email: 'te@test.com',
    password: '111111'
 )
 
 DeliveryAddress.create!(
    enduser_id: 1,
-   first_name: 'ざき',
-   last_name: 'かず',
-   postcode: '811-0114',
-   address: '福岡県糟屋郡志免町神宮2-12-22'
+   first_name: '田中',
+   last_name: '太郎',
+   postcode: '111-0114',
+   address: '東京都渋谷区神宮2-12-22'
 )
 
 #arist
@@ -115,6 +115,17 @@ Cd.create!(
    type: 0,
    sell_status: 0,
    release_date: 2016-12-4,
+)
+
+Cd.create!(
+   artist_id: 1,
+   genre_id: 1,
+   label_id: 1,
+   title: '完全感覚dreamer',
+   price: 1300,
+   sell_status: 0,
+   type: 0,
+   release_date: 2016-11-4,
 )
 
 Cd.create!(

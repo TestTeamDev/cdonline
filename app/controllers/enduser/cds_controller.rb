@@ -15,6 +15,7 @@ def search
 end
 
 def show
+ @tax = TaxRate.find(1)
  #CDの情報取得
  @cd = Cd.find(params[:id])
  @discs = @cd.discs

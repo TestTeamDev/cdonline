@@ -12,15 +12,7 @@ class Enduser::ReviewsController < ApplicationController
         	#enduser/reviews/index.js.erbに飛ぶ
             render "enduser/reviews/index.js.erb"
         else
-			 @discs = @cd.discs
-			 #cdに紐付いた情報の取得
-			 @genre = @cd.genre
-			 @artist = @cd.artist
-			 @label = @cd.label
-			  #cart_itemsにcdを追加
-			 @Cart_items = CartItem.new
-			 @favorit = Favorit.new
-        	render "enduser/cds/show"
+        	render "enduser/reviews/rollback.js.erb"
         end
 	end
 
@@ -41,7 +33,7 @@ class Enduser::ReviewsController < ApplicationController
 		@review = Review.find(params[:id])
 		if @review.update(review_params)
 			flash[:update] = "レビューが更新されました"
-			render enduser_cd_path(@review.cd)
+			redirect_to enduser_cd_path(@review.cd)
 	    else
 	    	render :edit
 	    end
