@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 	        root_path
 	      when :admins_admin
 	        new_admins_admin_session_path
-	end
+	  end
   end
 
   before_action :set_search
