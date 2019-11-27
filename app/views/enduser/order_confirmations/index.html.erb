@@ -118,9 +118,12 @@ $(function(){
 
 <div class ="index-center">
   <% if @cart_items.present? %>
-    <%= f.submit "購入する", class: "btn" %>
+    <%= f.submit "購入する", class: "btn-lg" %>
   <% end %>
-  <%= link_to 'カート一覧に戻る', enduser_cart_items_path, class: "btn" %>
+  <%= link_to 'カート一覧に戻る', enduser_cart_items_path, class: "btn-lg" %>
 </div>
 
 <% end %>
+
+<br>
+<br>

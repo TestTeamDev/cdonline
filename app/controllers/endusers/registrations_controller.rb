@@ -9,6 +9,20 @@ class Endusers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_sign_up_path_for(resource)
+    case resource
+        when Enduser
+          new_address = DeliveryAddress.new
+          new_address.enduser_id = current_endusers_enduser.id
+          new_address.first_name = current_endusers_enduser.first_name
+          new_address.last_name = current_endusers_enduser.last_name
+          new_address.postcode = current_endusers_enduser.postcode
+          new_address.address = current_endusers_enduser.address
+          new_address.save
+          root_path
+        end
+  end
+
   # POST /resource
   # def create
   #   super
