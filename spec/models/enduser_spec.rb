@@ -5,7 +5,7 @@ RSpec.describe Enduser, type: :model do
     context '登録する' do
       it '正しく登録できること )' do
 
-      	enquete = Enduser.new(
+      	user = Enduser.new(
           first_name: '田中',
           last_name: '太郎',
           reading_first_name: 'タナカ',
@@ -13,16 +13,16 @@ RSpec.describe Enduser, type: :model do
           postcode: '811-0114',
           address: '東京都渋谷区神宮2-12-22',
           phone_number: '111-6543',
-          email: 'te@test.com',
+          email: 'terr@test.com',
           password: '111111',
         )
 
-        expect(enquete).to be_valid
+        expect(user).to be_valid
 
-        enquete.save
+        user.save
 
         #テストデータの確認
-        answered_enquete = Enduser.find(1);
+        answered_enquete = user;
 
         expect(answered_enquete.first_name).to eq('田中')
         expect(answered_enquete.last_name).to eq('太郎')
@@ -31,7 +31,7 @@ RSpec.describe Enduser, type: :model do
         expect(answered_enquete.postcode).to eq('811-0114')
         expect(answered_enquete.address).to eq('東京都渋谷区神宮2-12-22')
         expect(answered_enquete.phone_number).to eq('111-6543')
-        expect(answered_enquete.email).to eq('te@test.com')
+        expect(answered_enquete.email).to eq('terr@test.com')
       end
     end
   end
