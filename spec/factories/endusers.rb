@@ -8,7 +8,7 @@ FactoryBot.define do
     postcode { '811-0114' }
     address { '東京都渋谷区神宮2-12-22' }
     phone_number { '111-6543' }
-    email { 'te@test.com' }
+    email { 't@test.com' }
     password { '111111' }
 
   end

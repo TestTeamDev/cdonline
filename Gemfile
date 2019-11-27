@@ -76,4 +76,4 @@ gem 'paranoia'
 gem 'rails-i18n'
 
 gem 'faker'
-
+gem 'rails-controller-testing'
