@@ -77,3 +77,7 @@ gem 'rails-i18n'
 
 gem 'faker'
 gem 'rails-controller-testing'
+
+group :production do
+  gem 'mysql2'
+end
